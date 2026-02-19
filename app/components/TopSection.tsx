@@ -96,7 +96,7 @@ export default function TopSection() {
         </div>
       </div>
 
-      {/* TRUSTED SECTION */}
+      {/* TRUSTED SECTION 
       <div className="absolute bottom-8 sm:bottom-12 left-0 w-full z-20 mt-2">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
@@ -115,7 +115,7 @@ export default function TopSection() {
 
       </div>
       </div>
-      </div>
+      </div>*/}
 
     </section>
   );
