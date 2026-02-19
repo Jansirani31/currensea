@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CurrenSea",
   description: "Next Gen OTC Aggregation",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
