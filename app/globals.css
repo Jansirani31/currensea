@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* ===============================
+   GLOBAL CSS VARIABLES
+================================ */
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+
+  --primary: #E3F9FF;
+  --primaryBlue: #0345F1;
+  --cyanBlue: #2ED1F0;
+}
+
+/* ===============================
+   BASE STYLES
+================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans),
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+
+  /* Dark futuristic gradient background */
+  background: radial-gradient(
+    1200px 600px at 50% -10%,
+    #0a1020 0%,
+    #050810 40%,
+    #000000 100%
+  );
+}
+
+/* ===============================
+   LAYOUT UTILITIES
+================================ */
+.anchor-offset {
+  scroll-margin-top: 6rem;
+}
+
+.screen-width {
+  padding: 4rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .screen-width {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* ===============================
+   BRAND TEXT GRADIENT
+================================ */
+.text-gradient-brand {
+  background-image: linear-gradient(
+    to right,
+    var(--cyanBlue),
+    var(--primaryBlue)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===============================
+   ANIMATED GRADIENT BORDER
+================================ */
+.animated-gradient-border {
+  position: relative;
+  z-index: 0;
+}
+
+.animated-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--cyanBlue),
+    var(--primaryBlue),
+    var(--cyanBlue)
+  );
+  background-size: 200% 200%;
+  animation: slide-gradient 6s linear infinite;
+  pointer-events: none;
+
+  mask: linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes slide-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ===============================
+   HERO ANIMATIONS
+================================ */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+
+
+
