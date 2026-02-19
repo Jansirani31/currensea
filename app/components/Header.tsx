@@ -46,7 +46,7 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Desktop Buttons */}
+        {/* Desktop Buttons 
         <div className="hidden lg:flex items-center gap-3">
           <button className="h-10 px-5 rounded-xl bg-white/10 backdrop-blur-md text-sm text-white hover:bg-white/20 transition">
             Login
@@ -55,7 +55,7 @@ export default function Header() {
           <button className="h-10 px-6 rounded-xl bg-white text-black text-sm font-medium hover:bg-gray-200 transition">
             Sign Up
           </button>
-        </div>
+        </div>*/}
 
         {/* Mobile Menu Button */}
         <button
