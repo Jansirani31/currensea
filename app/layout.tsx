@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "CurrenSea",
   description: "Next Gen OTC Aggregation",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
 };
 
