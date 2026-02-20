@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function StatsSection() {
     return (
-    <section className="relative z-10 w-full bg-black px-4 sm:px-6 lg:px-10 py-12 lg:py-16">
+    <section className="relative z-10 w-full bg-black px-4 sm:px-6 lg:px-10 py-12 lg:py-16 pt-18 lg:pt-24">
             <div className="
         max-w-7xl mx-auto grid
         grid-cols-1
@@ -149,8 +149,9 @@ text-right
           
           {/* Content Overlay */} 
           <div className=" relative z-10 h-full flex flex-col justify-end items-center text-center p-6 md:p-8 lg:p-10 ">
-          <p className="font-mona font-normal text-[16px] leading-[32.22px] tracking-[-0.43px] text-center text-[#D3D8E9] max-w-md">
-            Experience OTC trading the way it should be transparent,
+          <p className="font-[var(--font-mona)] leading-[32.22px] tracking-[-0.43px] text-center text-[#D3D8E9] p-4 rounded-lg">
+            Experience OTC trading the way 
+            it should be transparent,
             efficient, and built for scale.
           </p>
           {/* BUTTON 

@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 export default function FeatureSection() {
@@ -105,16 +104,25 @@ export default function FeatureSection() {
           </div>
 
         </div>
+{/* PAGINATION */}
+<div className="flex items-center justify-center gap-2
+                mt-10
+                text-xs md:text-sm
+                text-white tracking-widest
+                border border-white/10
+                bg-[#020202]
+                rounded-lg
+                px-4 py-2
+                w-fit mx-auto">
 
-        {/* PAGINATION */}
-        <div className="flex items-center justify-center gap-2 mt-10 text-xs md:text-sm text-[#FFFFFF] tracking-widest">
-          <span className="text-white">01</span>
-          <div>::::::::::</div>
-          <span className="text-white">02</span>
-          <div>::::::::::</div>
-          <span className="text-white">03</span>
-        </div>
-      </div>
+  <span>01</span>
+  <div className="text-white/70 tracking-[0.4em]">::::::::::::::::::::</div>
+  <span>02</span>
+  <div className="text-white/70 tracking-[0.4em]">::::::::::::::::::::</div>
+  <span>03</span>
+
+</div>
+</div>
     </section>
   );
 }	

@@ -5,7 +5,7 @@ export default function LiquidityProviderSection() {
 return (
 <section className="relative w-full bg-black via-[#060B14] to-black text-white overflow-hidden">
     
-    <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20 py-16 sm:py-20 md:py-24">
+    <div className="mx-auto px-6 sm:px-8 md:px-12 lg:px-20 py-16 sm:py-20 md:py-24">
     
     <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
         
@@ -44,22 +44,30 @@ return (
 
         {/* RIGHT IMAGE */}
         <div className="w-full lg:w-1/2">
-        <div className="relative w-full 
-                        h-[450px] 
-                        sm:h-[530px] 
-                        md:h-[630px] 
-                        lg:h-[750px] 
-                        rounded-2xl 
-                        overflow-hidden 
-                        shadow-2xl">
+        <div className="flex flex-col gap-6">
             
             <Image
-            src="/images/liquidity-provider-img.png"   
+            src="/images/liquidity-provider1.png"   
             alt="Liquidity Features"
-            fill
-            priority
+            width={500}
+            height={500}
             className="object-contain"
             />
+            <Image
+            src="/images/liquidity-provider2.png"   
+            alt="Liquidity Features"
+            width={500}
+            height={500}
+            className="object-contain"
+            />
+            <Image
+            src="/images/liquidity-provider3.png"   
+            alt="Liquidity Features"
+            width={500}
+            height={500}
+            className="object-contain"
+            />
+        
         </div>
         </div>
 

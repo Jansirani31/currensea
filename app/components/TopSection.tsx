@@ -56,21 +56,46 @@ export default function TopSection() {
             </div>
 
             {/* TITLE */}
-            <h1 className="font-medium font-space bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight
-                           text-4xl sm:text-5xl 
-                           md:text-6xl lg:text-7xl tracking-[-0.04em]">
-              Get the Best Price <br className="hidden sm:block" />
-              Without Complexity.
-            </h1>
+            <h1
+  className="
+    font-space
+    font-medium
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-[87px]
+    leading-[106%]
+    tracking-[-0.04em]
+    bg-gradient-to-r
+    from-[#EDEEF0]
+    to-[rgba(237,238,240,0.8)]
+    bg-clip-text
+    text-transparent
+    drop-shadow-[0px_2.7px_1.3px_rgba(0,0,0,0.06)]
+  "
+>
+  Get the Best Price <br className="hidden sm:block" />
+  Without Complexity.
+</h1>
 
-            {/* DESCRIPTION */}
-            <p className="mt-4 font-Mono text-white/70
-                          text-medium sm:text-lg 
-                          max-w-xl">
-              CurrenSea intelligently aggregates liquidity from trusted OTC desks
+
+  {/* DESCRIPTION */}
+  <p className="
+  mt-4
+  font-[var(--font-mona)]
+  font-medium
+  text-[#FFFFB2]
+
+  text-[18px] sm:text-[20px] lg:text-[22px]
+  leading-[28px]
+  tracking-[-0.4px]
+  text-white/70
+  max-w-xl
+">
+  CurrenSea intelligently aggregates liquidity from trusted OTC desks
               and providers to deliver best-price execution, reduced slippage,
               and complete trade visibility.
-            </p>
+</p>
 
            {/* BUTTON 
             <button className="mt-2 px-4 py-3 

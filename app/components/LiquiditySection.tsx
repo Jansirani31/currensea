@@ -7,15 +7,15 @@ export default function LiquiditySection() {
       <div className="max-w-8xl mx-auto px-6 relative">
 
         {/* ================= MOBILE LAYOUT ================= */}
-        <div className="block lg:hidden">
+        <div className="black lg:hidden">
 
           {/* Image */}
-          <div className="relative w-full h-[280px] sm:h-[350px] mb-8">
+          <div className="relative w-full h-[280px] sm:h-[350px] mb-8 bg-black">
             <Image
               src="/images/liquidity-bg.png"
               alt="Liquidity background"
               fill
-              className="object-contain brightness-300"
+              className="object-contain "
               priority
             />
           </div>

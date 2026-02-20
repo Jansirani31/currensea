@@ -1,31 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono , Space_Grotesk, Inter, Chivo, Mona_Sans} from "next/font/google";
+import {
+  Space_Grotesk,
+  Inter,
+  Chivo,
+  Mona_Sans,
+} from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 const space = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-space",
 });
+
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
 });
+
 const chivo = Chivo({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-chivo",
 });
-const mona =Mona_Sans({
-  subsets:["latin"],
-  variable: "--font-Mona",
+
+const mona = Mona_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-mona",
 });
 
 export const metadata: Metadata = {
@@ -42,10 +45,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html 
-    lang="en"
-    
-        className={`${geistSans.variable} ${space.variable} ${inter.variable} ${chivo.variable} ${mona.variable} ${geistMono.variable} antialiased bg-black`}>
+    <html
+      lang="en"
+      className={`
+        ${space.variable}
+        ${inter.variable}
+        ${chivo.variable}
+        ${mona.variable}
+        antialiased font-Space_Grotesk`}
+    >
+      {/* default font */}
       <body>
         {children}
       </body>

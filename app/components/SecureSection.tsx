@@ -74,7 +74,9 @@ export default function SecureSection() {
           {/* ===== DIVIDER ===== */}
           <div className="border-t border-white/10 mb-16 relative z-10" />
           {/* ===== CARDS ===== */}
-     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10 ">
+
+
 
   {[
     {
@@ -100,7 +102,7 @@ export default function SecureSection() {
       key={i}
       className="rounded-[16px] 
                border border-white/10 
-               bg-white/[0.03] 
+               bg-white/[0.01] 
                backdrop-blur-[40px] 
                p-4
                flex flex-col"
@@ -122,7 +124,7 @@ export default function SecureSection() {
 </div>
 
 
-      <h3 className="text-[24px] font-Mona font-medium min-h-[72px] text-center text-white mb-4">
+      <h3 className="text-[24px] font-Mona font-medium min-h-[72px] text-center mb-4">
         {card.title}
       </h3>
       <div className="w-30 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent mx-auto mb-4" />
