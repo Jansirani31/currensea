@@ -1,3 +1,5 @@
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,12 +9,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        space: ["var(--font-space)"],
-        inter: ["var(--font-inter)"],
-        chivo: ["var(--font-chivo)"],
-        mona: ["var(--font-mona)"],
-        geist: ["var(--font-geist-sans)"],
-        mono: ["var(--font-geist-mono)"],
+        space: ["var(--font-space)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
+        chivo: ["var(--font-chivo)", "sans-serif"],
+        mona: ["var(--font-mona)", "sans-serif"],
+        geist:["var(--font-geist)","sans-serif"]
+
       },
     },
   },
