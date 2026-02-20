@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono , Space_Grotesk, Inter, Chivo, Mona_Sans} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +10,22 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+const space = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+const chivo = Chivo({
+  subsets: ["latin"],
+  variable: "--font-chivo",
+});
+const mona =Mona_Sans({
+  subsets:["latin"],
+  variable: "--font-Mona",
 });
 
 export const metadata: Metadata = {
@@ -26,10 +42,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
-      >
+    <html 
+    lang="en"
+    
+        className={`${geistSans.variable} ${space.variable} ${inter.variable} ${chivo.variable} ${mona.variable} ${geistMono.variable} antialiased bg-black`}>
+      <body>
         {children}
       </body>
     </html>
