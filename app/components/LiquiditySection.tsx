@@ -12,7 +12,7 @@ export default function LiquiditySection() {
           {/* Image */}
           <div className="relative w-full h-[280px] sm:h-[350px] mb-8 bg-black">
             <Image
-              src="/images/liquidity-bg.png"
+              src="/images/liquidity-bg1.png"
               alt="Liquidity background"
               fill
               className="object-contain "
@@ -42,7 +42,7 @@ export default function LiquiditySection() {
 
           {/* Background Image */}
           <Image
-            src="/images/liquidity-bg.png"
+            src="/images/liquidity-bg1.png"
             alt="Liquidity background"
             fill
             className="object-contain"

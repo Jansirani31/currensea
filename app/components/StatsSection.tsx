@@ -28,7 +28,7 @@ export default function StatsSection() {
   <div>
     <div className="h-[5px] bg-[#0CA2FF] rounded-2xl mb-6 w-full" />
 
-    <h2 className="font-Space
+    <h2  style={{ fontFamily: "var(--font-space)" }} className="
 text-6xl font-medium text-[#0CA2FF]
 text-right
 ">

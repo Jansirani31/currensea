@@ -3,7 +3,7 @@ import Header from "./Header";
 
 export default function TopSection() {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden border-b border-dotted border-white/20">
 
       {/* BACKGROUND */}
       <Image
@@ -18,7 +18,7 @@ export default function TopSection() {
       src="/images/topsection-bg2.png"  
       alt="texture"
       fill
-      className="object-cover"
+      className="object-cover "
       />
 
       {/* DARK OVERLAY */}
@@ -56,14 +56,14 @@ export default function TopSection() {
             </div>
 
             {/* TITLE */}
-            <h1
+          
+ <h1 style={{ fontFamily: "var(--font-space)" }}
   className="
-    font-space
     font-medium
     text-4xl
     sm:text-5xl
     md:text-6xl
-    lg:text-[87px]
+    lg:text-[78px]
     leading-[106%]
     tracking-[-0.04em]
     bg-gradient-to-r
@@ -80,13 +80,13 @@ export default function TopSection() {
 
 
   {/* DESCRIPTION */}
-  <p className="
+  <p style={{
+    fontFamily: "var(--font-mona)"}} className="
   mt-4
-  font-[var(--font-mona)]
   font-medium
   text-[#FFFFB2]
 
-  text-[18px] sm:text-[20px] lg:text-[22px]
+  text-[18px] sm:text-[20px] lg:text-[20px]
   leading-[28px]
   tracking-[-0.4px]
   text-white/70
