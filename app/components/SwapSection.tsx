@@ -38,11 +38,11 @@ export default function SwapSection() {
     src="/images/swap-bg1.png"   
     alt="Wave"
     fill
-    className="object-cover object-bottom "
+    className="object-cover"
   />
 </div>
         {/* CONTENT */}
-        <div className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="relative max-w-7xl mx-auto px-6 py-30">
 
           {/* GRID = TABLE STYLE */}
           <div className="grid lg:grid-cols-2 items-center">

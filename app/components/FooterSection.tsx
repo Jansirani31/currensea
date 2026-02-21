@@ -61,7 +61,7 @@ export default function FooterSection() {
     className="object-cover"
     priority
   />
-          <div className="relative w-[900px] h-[500px] overflow-hidden">
+          <div className="relative w-[900px] h-[500px]">
             <Image
               src="/images/footer-bg.png"
               alt="logo"
@@ -179,15 +179,15 @@ export default function FooterSection() {
   </footer>*/}
 
   {/* TOP DARK FADE */}
-  <div className="absolute bottom-0 left-0 w-full h-64 
+  <div className="absolute bottom-0 left-0 w-full h-60
                 bg-[linear-gradient(180deg,rgba(2,2,2,0)_0%,#000000_8.26%)]
-                backdrop-blur-xl">
+                backdrop-blur-3xl">
 </div>
 
 
   {/* BIG BACKGROUND TEXT */}
-  <h1 className="absolute bottom-0 left-1/2 -translate-x-1/2 
-               text-[220px] font-bold 
+  <h1 className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 
+               text-[200px] font-bold 
                text-white/5 
                tracking-tight 
                select-none pointer-events-none">

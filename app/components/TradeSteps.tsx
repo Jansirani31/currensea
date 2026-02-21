@@ -27,7 +27,7 @@ export default function TradeSteps() {
     <section className="w-full bg-black text-white py-24">
       
       {/* Centered Container */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-20">
+      <div className="max-w-[1400px] mx-auto">
 
         {/* Header */}
         <div className="flex items-center justify-between mb-20">
