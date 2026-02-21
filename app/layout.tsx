@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono,Space_Grotesk, Inter,Chivo,Mona_Sans, } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Space_Grotesk,
+  Inter,
+  Chivo,
+  Mona_Sans,
+  Urbanist,
+} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,6 +24,12 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-space",
+});
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-urbanist",
 });
 
 const inter = Inter({
@@ -38,7 +52,7 @@ const mona = Mona_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
 
   title: {
@@ -55,8 +69,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "CurrenSea",
-    description:
-      "Next Gen OTC Liquidity Aggregation Platform",
+    description: "Next Gen OTC Liquidity Aggregation Platform",
     url: "/",
     siteName: "CurrenSea",
     images: [
@@ -93,14 +106,10 @@ export default function RootLayout({
         ${chivo.variable}
         ${mona.variable}
         ${geistSans.variable} 
-        ${geistMono.variable} antialiased font-sans`}
+        ${geistMono.variable} antialiased font-sans
+      `}
     >
-      {/* default font */}
-      <body>
-        {children}
-      </body>
+      <body className="overflow-x-hidden min-h-screen">{children}</body>
     </html>
   );
 }
-
-

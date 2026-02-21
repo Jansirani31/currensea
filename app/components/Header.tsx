@@ -60,7 +60,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden text-white"
+          className="lg:hidden text-white z-50"
         >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
@@ -68,16 +68,16 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ${
+        className={`lg:hidden absolute top-20 left-0 w-full bg-black/95 backdrop-blur-lg transition-all duration-300 overflow-hidden ${
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-black/95 backdrop-blur-lg px-6 pb-6 pt-4 space-y-4 text-white">
+        <div className="px-6 pb-6 pt-4 space-y-4 text-white">
 
-          <a href="#" className="block hover:text-gray-300">
+          <a href="#FeaturesSection" className="block hover:text-gray-300">
             Features
           </a>
-          <a href="#" className="block hover:text-gray-300">
+          <a href="#AboutSection" className="block hover:text-gray-300">
             About us
           </a>
           <a href="#" className="block hover:text-gray-300">

@@ -5,10 +5,11 @@ export default function FeatureSection() {
     <section id="FeaturesSection" className="bg-black text-white py-14">
       {/* TITLE */}
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <p className="text-sm tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-300 mb-4">
+        <p style={{ fontFamily: "var(--font-chivo)" }} className="text-sm tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-300 mb-4">
           FEATURES
         </p>
-        <h2 className="text-4xl md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF] to-[#CBC7D3]leading-tight">
+        <h2  style={{ fontFamily: "var(--font-space)" }}
+className="text-[80px] md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF] to-[#CBC7D3]leading-tight">
           EXPLORE OUR <br /> FEATURES
         </h2>
       </div>
@@ -61,7 +62,7 @@ export default function FeatureSection() {
               01.
             </p>
 
-            <h3 className="font-normal text-[#FFFFFF] md:text-xl lg:text-2xl leading-tight text-right mt-18">
+            <h3   style={{ fontFamily: "var(--font-mona)" }} className="font-normal text-[#FFFFFF] md:text-xl lg:text-2xl leading-tight text-right mt-18">
               Institutional-Grade <br />
               Global Liquidity Access
             </h3>
@@ -73,7 +74,7 @@ export default function FeatureSection() {
               p-6 md:p-8 mt-6 md:mt-0 
               md:absolute md:bottom-0 md:right-0 text-left ">
 
-            <p className="text-[#FFFFFFB2] text-base md:text-lg leading-relaxed mb-8">
+            <p style={{ fontFamily: "var(--font-space)" }} className="text-[#FFFFFFB2] text-base md:text-lg leading-relaxed mb-8">
               Advanced routing algorithms scan multiple liquidity sources in
               real time to secure the best available price for every trade.
             </p>
@@ -116,9 +117,11 @@ export default function FeatureSection() {
                 w-fit mx-auto">
 
   <span>01</span>
-  <div className="text-white/70 tracking-[0.4em]">::::::::::::::::::::</div>
+  <div className="text-white/70 tracking-[0.4em] hidden md:inline">::::::::::::::::::::</div>
+  <div className="text-white/70 tracking-[0.4em] inline md:hidden">:::::::::</div>
   <span>02</span>
-  <div className="text-white/70 tracking-[0.4em]">::::::::::::::::::::</div>
+  <div className="text-white/70 tracking-[0.4em] hidden md:inline">::::::::::::::::::::</div>
+  <div className="text-white/70 tracking-[0.4em] inline md:hidden">::::::::::</div>
   <span>03</span>
 
 </div>

@@ -49,31 +49,32 @@ export default function FaqSection() {
   ];
 
   return (
-    <section className="w-full bg-black py-24 px-6">
+    <section className="w-full bg-black py-16 md:py-24 px-4 md:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         <div
-          className="rounded-3xl p-16 bg-cover bg-center bg-no-repeat"
+          className="rounded-3xl p-6 md:p-10 lg:p-16 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/images/faqsection-bg.png')",
           }}
         >
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
             {/* LEFT SIDE */}
-            <div className="space-y-8">
-              <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white tracking-widest text-sm">
+            <div className="space-y-6 md:space-y-8">
+              <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white tracking-widest text-xs md:text-sm">
                 FAQS
               </p>
 
-              <h2 className="text-5xl font-medium text-white leading-tight tracking-[-2.0px]">
+              <h2  style={{ fontFamily: "var(--font-space)" }} className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight tracking-[-1.5px] md:tracking-[-2px]">
                 FREQUENTLY <br /> ASKED QUESTIONS
               </h2>
 
-              <p className="text-white/70 max-w-md">
+              <p style={{ fontFamily: "var(--font-mona)" }} className="text-white/70 max-w-md text-sm md:text-base leading-relaxed">
                 Have questions? Our FAQ section has you covered with quick answers
                 to the most common inquiries.
               </p>
+
               {/* BUTTON 
               <button
                 className="group inline-flex items-center gap-2 
@@ -81,43 +82,44 @@ export default function FaqSection() {
                 bg-[linear-gradient(90deg,#5814F9_0%,#814BFE_52%,#5814F9_100%)]
                 text-white font-medium 
                 hover:opacity-90 transition"
-    >
-              <span>EXPLORE ALL SERVICES</span>
+              >
+                <span>EXPLORE ALL SERVICES</span>
 
-              <Image
-                src="/images/icons/common-whitearrow-icon.png"
-                alt="arrow"
-                width={16}
-                height={16}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </button>
-            */}
+                <Image
+                  src="/images/icons/common-whitearrow-icon.png"
+                  alt="arrow"
+                  width={16}
+                  height={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </button>
+              */}
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {faqs.map((item, index) => (
                 <div
                   key={index}
-                  className="border border-white/10 rounded-2xl bg-black/60 backdrop-blur-md overflow-hidden"
+                  className="border border-white/8 rounded-2xl bg-[#080808]
+                  backdrop-blur-md overflow-hidden"
                 >
                   <button
                     onClick={() => toggle(index)}
-                    className="w-full flex justify-between items-center px-6 py-5 text-left text-white"
+                    className="
+                   w-full flex justify-between items-center px-5 md:px-6 py-4 md:py-5 text-left text-white"
                   >
-                    <span className="text-lg pr-4">
+                    <span className="text-base md:text-lg pr-4">
                       {item.question}
                     </span>
 
-                    <span className="text-2xl flex-shrink-0">
+                    <span className="text-xl md:text-2xl flex-shrink-0">
                       {active === index ? "−" : "+"}
                     </span>
                   </button>
 
-                  {/* ANSWER */}
                   {active === index && (
-                    <div className="px-6 pb-6 text-gray-300 text-sm leading-relaxed">
+                    <div className="px-5 md:px-6 pb-5 md:pb-6 text-gray-300 text-sm md:text-base leading-relaxed">
                       {item.answer}
                     </div>
                   )}

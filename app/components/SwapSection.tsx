@@ -6,11 +6,11 @@ export default function SwapSection() {
 
       {/* ===== TOP TITLE ===== */}
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-16 text-center">
-        <p className="text-xs tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white mb-6">
+        <p  style={{ fontFamily: "var(--font-chivo)"}} className="text-xs font-light tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white mb-6">
           SWAP
         </p>
 
-        <h2 className="text-3xl text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight tracking-[-4.8px]">
+        <h2 style={{ fontFamily: "var(--font-space)"}} className="text-3xl text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight tracking-tight">
           USDT IN RUPEE <br />
           OUT
         </h2>
@@ -42,14 +42,14 @@ export default function SwapSection() {
   />
 </div>
         {/* CONTENT */}
-        <div className="relative max-w-7xl mx-auto px-6 py-30">
+        <div className="relative">
 
           {/* GRID = TABLE STYLE */}
-          <div className="grid lg:grid-cols-2 items-center">
+          <div className="grid lg:grid-cols-2">
 
             {/* LEFT */}
-            <div className="pr-0 lg:pr-16">
-              <p className="text-gray-300 font-Mono text-base md:text-lg leading-relaxed max-w-xl">
+            <div className="pr-0 lg:pl-8 lg:pt-8 bg-white/2">
+              <p style={{ fontFamily: "var(--font-mana)" }} className="text-gray-300 font-Mono text-base md:text-lg leading-relaxed max-w-xl">
                Seamlessly buy or sell USDT across multiple chains using your local fiat currency. Whether you go from fiat to crypto or crypto to fiat, It's fast, secure and truly peer to peer with P2P.me.
               </p>
               {/* BUTTON }
@@ -79,7 +79,7 @@ export default function SwapSection() {
                 */}          
             </div>
 
-            <div />
+            <div className="py-30"/>
 
           </div>
 

@@ -15,7 +15,7 @@ export default function LiquiditySection() {
               src="/images/liquidity-bg1.png"
               alt="Liquidity background"
               fill
-              className="object-contain "
+              className="object-cover object-[20%_70%]"
               priority
             />
           </div>
@@ -55,11 +55,11 @@ export default function LiquiditySection() {
           {/* Content Over Image */}
           <div className="absolute inset-0 flex items-center justify-end px-12">
             <div className="max-w-xl text-left">
-              <h2 className="text-4xl font-medium leading-tight mb-6">
+              <h2  style={{ fontFamily: "var(--font-space)" }} className="text-4xl font-medium leading-tight mb-6">
                 Earn 2% on Every Swap as
                 a Liquidity Provider
               </h2>
-              <p className="text-white/70 mt-6 text-lg leading-relaxed max-w-lg">
+              <p  style={{ fontFamily: "var(--font-mona)" }}  className=" text-[20px] font-light text-white/70 mt-6 text-lg leading-relaxed max-w-lg">
         Provide USDC liquidity and process swaps through your bank account
         every transaction you enable strengthens the network, while you earn
         2% on each trade.
