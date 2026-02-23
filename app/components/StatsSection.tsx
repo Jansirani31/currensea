@@ -106,7 +106,7 @@ export default function StatsSection() {
               className="absolute top-0 right-0"
             />
 
-            <p style={{ fontFamily: "var(--font-mona)" }}  className="text-xs md:text-sm text-[#FF9CAA] mb-3">
+            <p style={{ fontFamily: "var(--font-space)" }}  className="text-xs md:text-sm text-[#FF9CAA] mb-3">
               Institutional & Enterprise Clients
             </p>
             <div className="h-[2px]  bg-[#FF9CAA] mb-8" />
@@ -162,7 +162,8 @@ export default function StatsSection() {
 
           {/* Content Overlay */}
           <div className=" relative z-10 h-full flex flex-col justify-end items-center text-center p-6 md:p-8 lg:p-10 pt-[60%]">
-            <p  style={{ fontFamily: "var(--font-mona)" }} className="leading-[32.22px] tracking-[-0.43px] text-center text-[#D3D8E9] p-4 rounded-lg">
+            <p  style={{ fontFamily: "var(--font-mona)" }} className="leading-[32.22px] tracking-[-0.43px] text-center text-[#D3D8E9] p-4 rounded-lg max-w-[320px]     /* 👈 width kammi */
+    mx-auto">
               Experience OTC trading the way it should be transparent,
               efficient, and built for scale.
             </p>
@@ -231,14 +232,15 @@ export default function StatsSection() {
         "
         >
           <div>
-            <h2  style={{ fontFamily: "var(--font-space)" }} className=" font-semibold text-xl md:text-2xl lg:text-3xl font-semibold text-[#FF9CAA]">
+            <h2  style={{ fontFamily: "var(--font-space)" }} className=" font-bold text-[56px] md:text-4xl  text-[#FF9CAA]">
               Multi-liquidity
             </h2>
-            <h2  style={{ fontFamily: "var(--font-space)" }} className=" font-semibold text-xl md:text-2xl lg:text-3xl font-semibold text-[#FF9CAA]">
+            <h2  style={{ fontFamily: "var(--font-space)" }} className=" font-bold  text-[56px] md:text-4xl text-[#FF9CAA]">
               source aggregation
             </h2>
-            <div className="h-[2px] w-45 bg-[#76E3DC] mt-4" />
-            <p className="text-xs md:text-sm text-[#76E3DC] mt-3">
+            <div className="h-[2px] w-56 bg-[#76E3DC] mt-4" />
+            <p  style={{ fontFamily: "var(--font-mona)" }} className="text-[10px] font-semibold md:text-xs text-[#76E3DC]
+ mt-3">
               Enterprise-Grade OTC Infrastructure
             </p>
           </div>

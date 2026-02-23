@@ -55,7 +55,7 @@ export default function LiquiditySection() {
           {/* Content Over Image */}
           <div className="absolute inset-0 flex items-center justify-end px-12">
             <div className="max-w-xl text-left">
-              <h2  style={{ fontFamily: "var(--font-space)" }} className="text-4xl font-medium leading-tight mb-6">
+              <h2  style={{ fontFamily: "var(--font-space)" }} className="text-[36px] font-medium leading-tight mb-6">
                 Earn 2% on Every Swap as
                 a Liquidity Provider
               </h2>

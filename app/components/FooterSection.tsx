@@ -28,56 +28,63 @@ export default function FooterSection() {
             EARN MORE AS A <br /> LIQUIDITY PROVIDER
           </h1>
 
-          <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 font-regular text-[#FFFFFFB2] text-sm md:text-base max-w-xl mx-auto">
+          <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6  text-[#FFFFFFB2] text-sm md:text-base max-w-xl mx-auto">
            Enhance your trading experience by providing liquidity to active over-the-counter
            (OTC) trades. By doing so, you can earn competitive spreads while maintaining
            complete control over your transactions and ensuring secure execution.
           </p>
         </div>
-        
-        {/* LOGO */}
-        <div className="relative mt-16 w-full flex justify-center overflow-hidden">
+        {/* LOGO SECTION */}
+<div className="relative w-full mt-16 overflow-hidden">
 
-          {/* BACKGROUND IMAGE */}
-          <div className="absolute inset-0">
-            <Image
-              src="/images/footer-bg1.png"
-              alt="background"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+  {/* BLUE BACKGROUND */}
+  <div className="absolute inset-0 bottom-[300px]">
+    <Image
+      src="/images/footer-bg1.png"
+      alt="background"
+      fill
+      className="object-cover"
+      priority
+    />
+  </div>
+  {/* BIG CURRENSEA TEXT (Watermark) */}
+  <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2
+      w-full max-w-[1400px] h-[250px] z-10
+      backdrop-blur-[48px] bg-[linear-gradient(180deg,rgba(2,2,2,0)_0%,#000000_8.26%)]
+      ">
+    <Image
+      src="/images/footer-bg2.png"
+      alt="CurrenSea"
+      fill
+      className="object-contain"
+      priority
+    />
+    <div className="absolute top-[-30px] w-full h-[30px] inset-0 
+    bg-[radial-gradient(circle_at_center,rgba(0, 0, 0, 0.51)_30%,transparent_70%)]"></div>
+  </div>
 
-          <div className="relative w-full h-[500px] max-w-full">
-            <Image
-              src="/images/footer-bg.png"
-              alt="logo"              fill
-              className="object-contain object-top"
-              priority
-            />
-            <div className="absolute w-full inset-0 bg-gradient-to-b from-black/30 to-transparent">
-            </div>
-          </div>
+  
+  {/* BIG  LOGO */}
+  <div className="relative w-full h-[550px] flex justify-center items-start ">
+    <Image
+      src="/images/footer-bg.png"
+      alt="logo"
+      fill
+      className="object-contain object-top"
+      priority
+    />
+            
+  </div>
+  </div>
 
-          {/* TOP DARK FADE */}
-          <div className="absolute bottom-0 left-0 w-full h-60
-                bg-[linear-gradient(180deg,rgba(2,2,2,0)_0%,#000000_8.26%)]
-                backdrop-blur-3xl">
-          </div>
+  
 
-          {/* BIG BACKGROUND TEXT */}
-          <h1 className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 
-               text-[200px] font-bold 
-               text-white/5 
-               tracking-tight 
-               select-none pointer-events-none
-               whitespace-nowrap">
-            CURRENSEA
-          </h1>
+  
 
-        </div>
-      </div>
+
+
+</div>
+
 
       {/* ================= BOTTOM BAR ================= */}
       <div className="border-t border-white/10">

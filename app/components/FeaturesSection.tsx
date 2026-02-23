@@ -9,14 +9,14 @@ export default function FeatureSection() {
           FEATURES
         </p>
         <h2  style={{ fontFamily: "var(--font-space)" }}
-className="text-[80px] md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF] to-[#CBC7D3]leading-tight">
+className="text-4xl md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF] to-[#CBC7D3]  leading-tight">
           EXPLORE OUR <br /> FEATURES
         </h2>
       </div>
 
       {/* MAIN CONTAINER */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="relative min-h-[500px] lg:min-h-[430px] border border-white/10 overflow-hidden">
+      <div>
+        <div className="relative min-h-[500px] lg:min-h-[430px] border border-white/10">
 
           {/* CENTER GLOBE */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -58,11 +58,11 @@ className="text-[80px] md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF]
               className="absolute left-8 bottom-8"
             />
 
-            <p className="text-sm font-mono text-gray-400 mb-6 text-right">
+            <p style={{ fontFamily: "var(--font-mona)" }} className ="text-sm text-gray-400 mb-6 text-right">
               01.
             </p>
 
-            <h3   style={{ fontFamily: "var(--font-mona)" }} className="font-normal text-[#FFFFFF] md:text-xl lg:text-2xl leading-tight text-right mt-18">
+            <h3   style={{ fontFamily: "var(--font-mona)" }} className="font-regular text-[#FFFFFF] text-[20px] md:text-xl lg:text-2xl leading-tight text-right mt-18">
               Institutional-Grade <br />
               Global Liquidity Access
             </h3>
@@ -74,7 +74,7 @@ className="text-[80px] md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF]
               p-6 md:p-8 mt-6 md:mt-0 
               md:absolute md:bottom-0 md:right-0 text-left ">
 
-            <p style={{ fontFamily: "var(--font-space)" }} className="text-[#FFFFFFB2] text-base md:text-lg leading-relaxed mb-8">
+            <p style={{ fontFamily: "var(--font-space)" }} className="text-[#FFFFFFB2] text-[18px] text-regular md:text-lg leading-relaxed mb-10 max-w-sm ">
               Advanced routing algorithms scan multiple liquidity sources in
               real time to secure the best available price for every trade.
             </p>

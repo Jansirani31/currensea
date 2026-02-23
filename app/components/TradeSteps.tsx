@@ -41,21 +41,21 @@ export default function TradeSteps() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 justify-items-center">
   {steps.map((step, index) => (
     <div
       key={index}
       className="
-        w-full max-w-[400px]
-        min-h-[450px]
+        w-full max-w-[320px]
+        min-h-[380px]
         rounded-[14px]
         border border-white/10
         backdrop-blur-xl
-        bg-white/5
+        bg-white/1 backdrop-blur-[40px]
         opacity-95
-        pt-[30px]
-        pb-[30px]
-        px-[30px]
+        pt-[20px]
+        pb-[20px]
+        px-[10px]
         flex flex-col items-center text-center
         transition-all duration-300
         hover:border-blue-500/40
@@ -74,12 +74,12 @@ export default function TradeSteps() {
               </div>
 
               {/* Title */}
-              <h3  style={{ fontFamily: "var(--font-space)"}} className="text-xl font-medium  whitespace-pre-line mb-5">
+              <h3  style={{ fontFamily: "var(--font-space)"}} className="text-[32px] font-medium  whitespace-pre-line mb-5">
                 {step.title}
               </h3>
 
               {/* Description */}
-              <p style={{ fontFamily: "var(--font-mona)"}} className="text-sm text-gray-400 leading-6 max-w-[260px]">
+              <p style={{ fontFamily: "var(--font-mona)"}} className="text-[14] font-light text-gray-400 leading-6 max-w-[260px]">
                 {step.desc}
               </p>
             </div>
