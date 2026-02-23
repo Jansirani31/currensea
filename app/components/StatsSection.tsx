@@ -113,7 +113,7 @@ export default function StatsSection() {
           </div>
 
           <div>
-            <h2  style={{ fontFamily: "var(--font-mona)" }} className=" text-[100px] font-Space font-bold md:text-6xl text-[#FF9CAA]">
+            <h2  style={{ fontFamily: "var(--font-space)" }} className=" text-[100px]  font-bold md:text-6xl text-[#FF9CAA]">
               1200+
             </h2>
 
@@ -232,17 +232,28 @@ export default function StatsSection() {
         "
         >
           <div>
-            <h2  style={{ fontFamily: "var(--font-space)" }} className=" font-bold text-[56px] md:text-4xl  text-[#FF9CAA]">
-              Multi-liquidity
-            </h2>
-            <h2  style={{ fontFamily: "var(--font-space)" }} className=" font-bold  text-[56px] md:text-4xl text-[#FF9CAA]">
-              source aggregation
-            </h2>
-            <div className="h-[2px] w-56 bg-[#76E3DC] mt-4" />
-            <p  style={{ fontFamily: "var(--font-mona)" }} className="text-[10px] font-semibold md:text-xs text-[#76E3DC]
- mt-3">
-              Enterprise-Grade OTC Infrastructure
-            </p>
+            <h2
+    style={{ fontFamily: "var(--font-space)" }}
+    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-[#FF9CAA]"
+  >
+    Multi-liquidity
+  </h2>
+
+  <h2
+    style={{ fontFamily: "var(--font-space)" }}
+    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-[#FF9CAA]"
+  >
+    source aggregation
+  </h2>
+
+  <div className="h-[3px] w-32 sm:w-40 md:w-48 lg:w-56 bg-[#76E3DC] mt-6 md:mt-8" />
+
+  <p
+    style={{ fontFamily: "var(--font-mona)" }}
+    className="text-xs sm:text-sm md:text-base font-semibold text-[#76E3DC] mt-4 md:mt-5"
+  >
+    Enterprise-Grade OTC Infrastructure
+  </p>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ className="text-4xl md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF] to
 
           {/* PURPLE WAVE */}
           <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 
-              h-[250px] md:h-[320px] lg:h-[350px] 
+              h-[250px] md:h-[320px] lg:h-[380px] 
               z-0 pointer-events-none">
             <Image
               src="/images/features2-bg.png"

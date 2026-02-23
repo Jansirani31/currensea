@@ -50,7 +50,7 @@ export default function SwapSection() {
             {/* LEFT */}
             <div className="pr-0 lg:pl-8 lg:pt-8 bg-white/2">
               <p style={{ fontFamily: "var(--font-mana)" }} className="text-[#FFFFFF]
- font-regular text-[32px] md:text-lg leading-relaxed max-w-xl px-6 md:px-0">
+ font-regular text-lg md:text-[24px] leading-relaxed max-w-xl px-6 md:px-0">
                Seamlessly buy or sell USDT across multiple chains using your local fiat currency. Whether you go from fiat to crypto or crypto to fiat, It's fast, secure and truly peer to peer with P2P.me.
               </p>
               {/* BUTTON }

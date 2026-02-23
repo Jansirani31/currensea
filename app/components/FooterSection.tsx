@@ -38,7 +38,7 @@ export default function FooterSection() {
 <div className="relative w-full mt-16 overflow-hidden">
 
   {/* BLUE BACKGROUND */}
-  <div className="absolute inset-0 bottom-[300px]">
+  <div className="absolute inset-0  bottom-[300px]">
     <Image
       src="/images/footer-bg1.png"
       alt="background"
@@ -52,36 +52,47 @@ export default function FooterSection() {
       w-full max-w-[1400px] h-[250px] z-10
       backdrop-blur-[48px] bg-[linear-gradient(180deg,rgba(2,2,2,0)_0%,#000000_8.26%)]
       ">
+  <div className="absolute inset-0 backdrop-blur-[48px]">   
+   
     <Image
       src="/images/footer-bg2.png"
       alt="CurrenSea"
       fill
-      className="object-contain"
+      className="object-contain
+       sm:w-[85%] 
+      md:w-[70%] 
+      lg:w-[60%] 
+      xl:w-[50%]
+      h-auto"
       priority
     />
-    <div className="absolute top-[-30px] w-full h-[30px] inset-0 
-    bg-[radial-gradient(circle_at_center,rgba(0, 0, 0, 0.51)_30%,transparent_70%)]"></div>
+    
+     
+   
+    </div> 
+    
   </div>
 
   
   {/* BIG  LOGO */}
   <div className="relative w-full h-[550px] flex justify-center items-start ">
+    
     <Image
       src="/images/footer-bg.png"
       alt="logo"
       fill
-      className="object-contain object-top"
+      className="object-contain object-[center_-60px]"
       priority
     />
+    {/* BLUR ONLY THIS STRIP */}
+  <div className="absolute top-[220px] left-0 w-full h-[140px]
+    bg-black/50
+    backdrop-blur-md
+    pointer-events-none"
+  />
             
   </div>
   </div>
-
-  
-
-  
-
-
 
 </div>
 
