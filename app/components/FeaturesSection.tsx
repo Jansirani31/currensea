@@ -71,7 +71,7 @@ className="text-4xl md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF] to
           {/* BOTTOM RIGHT CARD */}
           <div className="relative z-10 w-full md:w-1/2 md:h-1/2 
               bg-white/[0.02] backdrop-blur-md border border-white/10 
-              p-6 md:p-8 mt-6 md:mt-0 
+              p-6 md:p-8 mt-26 md:mt-0 
               md:absolute md:bottom-0 md:right-0 text-left ">
 
             <p style={{ fontFamily: "var(--font-space)" }} className="text-[#FFFFFFB2] text-[18px] text-regular md:text-lg leading-relaxed mb-10 max-w-sm ">
@@ -128,6 +128,6 @@ className="text-4xl md:text-6xl font-medium text-gradient-to-b from-[#FFFFFF] to
 </div>
     </section>
   );
-}	
-
+}
+	
 

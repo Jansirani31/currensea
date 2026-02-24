@@ -28,17 +28,20 @@ export default function FooterSection() {
             EARN MORE AS A <br /> LIQUIDITY PROVIDER
           </h1>
 
-          <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6  text-[#FFFFFFB2] text-sm md:text-base max-w-xl mx-auto">
+          <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 mb-6 text-[#FFFFFFB2] text-sm md:text-base max-w-xl mx-auto">
            Enhance your trading experience by providing liquidity to active over-the-counter
            (OTC) trades. By doing so, you can earn competitive spreads while maintaining
            complete control over your transactions and ensuring secure execution.
           </p>
         </div>
-        {/* LOGO SECTION */}
-<div className="relative w-full mt-16 overflow-hidden">
+      {/* LOGO SECTION */}
+<div className="relative w-full -mt-1 sm:mt-16 overflow-hidden">
 
   {/* BLUE BACKGROUND */}
-  <div className="absolute inset-0  bottom-[300px]">
+  <div className="absolute 
+    inset-x-0 top-0 
+    h-[280px] sm:h-auto
+    sm:bottom-[300px]">
     <Image
       src="/images/footer-bg1.png"
       alt="background"
@@ -46,53 +49,50 @@ export default function FooterSection() {
       className="object-cover"
       priority
     />
-  </div>
-  {/* BIG CURRENSEA TEXT (Watermark) */}
-  <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2
-      w-full max-w-[1400px] h-[250px] z-10
-      backdrop-blur-[48px] bg-[linear-gradient(180deg,rgba(2,2,2,0)_0%,#000000_8.26%)]
-      ">
-  <div className="absolute inset-0 backdrop-blur-[48px]">   
-   
-    <Image
-      src="/images/footer-bg2.png"
-      alt="CurrenSea"
-      fill
-      className="object-contain
-       sm:w-[85%] 
-      md:w-[70%] 
-      lg:w-[60%] 
-      xl:w-[50%]
-      h-auto"
-      priority
-    />
-    
-     
-   
-    </div> 
-    
+    <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent pointer-events-none" />
   </div>
 
-  
-  {/* BIG  LOGO */}
-  <div className="relative w-full h-[550px] flex justify-center items-start ">
-    
+  {/*LOGO */}
+  <div className="relative w-full 
+      h-[280px] sm:h-[550px]   
+      flex justify-center items-start">
+
     <Image
       src="/images/footer-bg.png"
       alt="logo"
       fill
-      className="object-contain object-[center_-60px]"
+      className="object-cover object-center lg:object-contain lg:object-[center_-40px]"
       priority
     />
-    {/* BLUR ONLY THIS STRIP */}
-  <div className="absolute top-[220px] left-0 w-full h-[140px]
-    bg-black/50
-    backdrop-blur-md
-    pointer-events-none"
-  />
-            
+
+    {/* BLUR STRIP */}
+    <div className="absolute hidden sm:block top-[200px] sm:top-[240px] left-0 w-full h-[120px] sm:h-[140px]
+      bg-black/50 backdrop-blur-md pointer-events-none"
+    />
   </div>
+
+  {/* WATERMARK */}
+  <div className="hidden sm:block absolute 
+  bottom-[20px] sm:bottom-0
+  left-1/2 -translate-x-1/2
+  w-full max-w-[1400px]
+  h-[120px] sm:h-[250px]
+  z-10
+  backdrop-blur-[48px]
+  bg-[linear-gradient(180deg,rgba(2,2,2,0)_0%,#000000_8.26%)]">
+
+    <Image
+      src="/images/footer-bg2.png"
+      alt="CurrenSea"
+      fill
+      className="object-contain object-center 
+                 md:w-[70%] lg:w-[60%] xl:w-[50%] z-0 pb-8
+                 "
+      priority
+    />
   </div>
+
+</div>
 
 </div>
 

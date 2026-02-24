@@ -7,7 +7,7 @@ export default function SecureSection() {
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6">
        
         {/* ===== MAIN CONTAINER ===== */}
-        <div className="relative rounded-[22px] border border-white/5 bg-[#080808] p-6 pb-2 sm:p-10
+        <div className="relative rounded-[22px] border border-white/5 bg-[#080808] px-3 py-6 pb-2 pb-2 sm:p-10
                         sm:pb-4 lg:p-12 lg:pb-6 overflow-hidden">
 
           {/* ===== PURPLE BOTTOM GLOW IMAGE ===== */}
@@ -74,13 +74,13 @@ export default function SecureSection() {
           </div>
 
           {/* ===== DIVIDER ===== */}
-          <div className="border-t border-white/5 relative top-5 mb-16 z-10"/>
+          <div className="border-t border-white/5 relative top-2 md:top-5 mb-10 md:mb-16 z-10"/>
           {/* ===== CARDS ===== */}
                           
           <div className=" grid
   grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-  p-4               
-  gap-y-3           
+  p-2   
+  gap-y-3          
   gap-x-3            
   md:gap-5        
   relative z-10">
@@ -107,13 +107,15 @@ export default function SecureSection() {
               <div
                 key={i}
                 className="rounded-[16px] 
-                           min-h-[200px]
-                           min-h-[220px]
+                           min-h-[160px]
                            border border-white/10 
                            bg-[url('/images/secure3-bg.png')
                            bg-white/[0.01] 
                            backdrop-blur-[40px] 
-                            px-4 pb-2 sm:pt-5 sm:px-5 sm:pb-3 flex flex-col
+                           px-4 pt-2 pb-0.5 
+                           sm:px-7 sm:pt-5 sm:pb-2
+                           sm:w-[95%] sm:min-h-[120px]
+                          flex flex-col justify-start
                            ">
                  {/*  CENTER TOP BORDER GLOW */}
       <div className="absolute top-0 left-0 w-full h-[1px] px-16">
@@ -127,7 +129,7 @@ export default function SecureSection() {
     className="object-contain"
   />
                 {/* ICON */}
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-3 mt-3">
                   <div className="w-12 h-12 rounded-full 
                                   bg-gradient-to-br from-[#4F1AD6] to-[#8059E3]
                                   flex items-center justify-center">
@@ -141,19 +143,19 @@ export default function SecureSection() {
                   </div>
                 </div>
 
-                <h3  style={{ fontFamily: "var(--font-mona)" }} className="text-[30px] sm:text-[24px] font-medium min-h-[64px] sm:min-h-[72px] text-center text-[#FFFFFF]
+                <h3  style={{ fontFamily: "var(--font-mona)" }} className="text-[20px] sm:text-[20px] font-medium min-h-[48px] sm:min-h-[64px] text-center text-[#FFFFFF]
 mb-4">
                   {card.title}
                 </h3>
 
                 <div className="w-[150px] h-[1px] sm:w-[180px] lg:w-[220px]  bg-gradient-to-r from-transparent via-white/15 to-transparent mx-auto mb-4" />
 
-                <p  style={{ fontFamily: "var(--font-mona)" }} className="text-[14px] text-regular text-white/60 text-center mb-8 leading-relaxed px-2">
+                <p  style={{ fontFamily: "var(--font-mona)" }} className="text-[14px] text-regular text-white/60 text-center mb-2 sm:mb-8 leading-relaxed px-2">
                   {card.desc}
                 </p>
 
                 {/* FIXED IMAGE CONTAINER */}
-                <div className="mt-auto flex justify-center h-[200px] sm:h-[220px] items-center">
+                <div className="mt-auto flex justify-center h-[200px] sm:h-[220px]  sm:pb-0 items-center">
                   <Image
                     src={card.img}
                     alt=""

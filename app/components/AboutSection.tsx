@@ -26,7 +26,8 @@ export default function AboutSection() {
             </h1>
 
             <p style={{ fontFamily: "var(--font-mona)"}} 
-                className=" font-light mt-8 text-gray-300  text-[24px]">
+                className=" font-light mt-8 text-[16px] md:text-[24px] leading-relaxed text-[#FFFFFF]
+">
               CurrenSea is built for institutions, professional traders,
               and high-volume participants who demand precision,
               reliability, and control in every transaction.
@@ -34,7 +35,7 @@ export default function AboutSection() {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="relative w-full lg:w-[60%] h-[280px] md:h-[380px] lg:h-[500px]">
+          <div className="relative w-full lg:w-[60%] h-[280px] md:h-[380px] lg:h-[500px] -mt-6 md:mt-0">
             <Image
               src="/images/about-bg.png"
               alt="About illustration"

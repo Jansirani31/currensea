@@ -113,7 +113,7 @@ export default function StatsSection() {
           </div>
 
           <div>
-            <h2  style={{ fontFamily: "var(--font-space)" }} className=" text-[100px]  font-bold md:text-6xl text-[#FF9CAA]">
+            <h2  style={{ fontFamily: "var(--font-space)" }} className="text-5xl md:text-[100px] lg:text-[80px] font-bold text-[#FF9CAA]">
               1200+
             </h2>
 
@@ -234,14 +234,14 @@ export default function StatsSection() {
           <div>
             <h2
     style={{ fontFamily: "var(--font-space)" }}
-    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-[#FF9CAA]"
+    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#FF9CAA]"
   >
     Multi-liquidity
   </h2>
 
   <h2
     style={{ fontFamily: "var(--font-space)" }}
-    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-[#FF9CAA]"
+    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#FF9CAA]"
   >
     source aggregation
   </h2>
