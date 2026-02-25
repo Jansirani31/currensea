@@ -51,30 +51,17 @@ const mona = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  ),
-
-  title: {
-    default: "CurrenSea",
-    template: "%s | CurrenSea",
-  },
-
+  title: "CurrenSea",
   description:
     "CurrenSea intelligently aggregates liquidity from trusted OTC desks to deliver best-price execution with reduced slippage.",
-
-  icons: {
-    icon: "/favicon.ico",
-  },
-
   openGraph: {
     title: "CurrenSea",
     description: "Next Gen OTC Liquidity Aggregation Platform",
-    url: "/",
+    url: "https://www.currensea.in/",
     siteName: "CurrenSea",
     images: [
       {
-        url: "/logo-s.png",
+        url: "https://www.currensea.in/images/logo-s.png",
         width: 1200,
         height: 630,
         alt: "CurrenSea",
@@ -88,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CurrenSea",
     description: "Next Gen OTC Liquidity Aggregation Platform",
-    images: ["/logo-s.png"],
+    images: ["https://www.currensea.in/images/logo-s.png"],
   },
 };
 
