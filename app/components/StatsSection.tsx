@@ -20,8 +20,8 @@ export default function StatsSection() {
               flex flex-col justify-between
               p-6
               rounded-2xl
-              bg-gradient-to-b from-purple-600/10 to-pink-600/20
-              border border-purple-500/20
+              bg-gradient-to-b from-[rgba(208,89,247,0.1)] to-[rgba(234,89,247,0.2)]
+              border border-[#0CA2FF1A]
             ">
           {/* TOP SECTION */}
           <div>
@@ -92,32 +92,33 @@ export default function StatsSection() {
           lg:col-span-1 lg:row-span-2
           flex flex-col justify-between
           p-6 rounded-2xl
-          bg-gradient-to-b from-[#6AFCFC1A] to-[#6AFCF033]
+          bg-gradient-to-b from-[rgba(0,53,255,0.1)] to-[rgba(0,53,255,0.2)]
           border border-[#FC6A801A]
         "
         >
           <div className="relative">
             {/* SVG - top right */}
             <Image
-              src="/images/icons/Stats-1200-icon-bg.svg"
+              src="/images/icons/Stats-1200.png"
               alt="icon"
               width={18}
               height={18}
               className="absolute top-0 right-0"
             />
 
-            <p style={{ fontFamily: "var(--font-space)" }}  className="text-xs md:text-sm text-[#FF9CAA] mb-3">
+            <p style={{ fontFamily: "var(--font-space)" }}  className="text-xs md:text-sm text-[#A2B6DD]
+ mb-3">
               Institutional & Enterprise Clients
             </p>
-            <div className="h-[2px]  bg-[#FF9CAA] mb-8" />
+            <div className="h-[2px]  bg-[#A2B6DD] mb-8" />
           </div>
 
           <div>
-            <h2  style={{ fontFamily: "var(--font-space)" }} className="text-5xl md:text-[100px] lg:text-[80px] font-bold text-[#FF9CAA]">
+            <h2  style={{ fontFamily: "var(--font-space)" }} className="text-5xl md:text-[100px] lg:text-[80px] font-bold text-[#A2B6DD]">
               1200+
             </h2>
 
-            <p  style={{ fontFamily: "var(--font-inter)" }} className="text-[14px] text-medium md:text-sm text-[#FF9CAA] mt-3">
+            <p  style={{ fontFamily: "var(--font-inter)" }} className="text-[14px] text-medium md:text-sm text-[#A2B6DD] mt-3">
               OTC Trades Executed
             </p>
             <span></span>
@@ -190,7 +191,7 @@ export default function StatsSection() {
           lg:col-span-2
           p-8
           rounded-2xl
-          bg-gradient-to-b from-[#74C8FC]/10 to-[#74C8FC]/20
+          bg-gradient-to-b from-[rgba(116,200,252,0.1)] to-[rgba(116,200,252,0.2)]
           border border-[#74C8FC1A]
           flex items-center
           "
@@ -224,9 +225,7 @@ export default function StatsSection() {
           md:col-span-2
           lg:col-span-2
           p-6 rounded-2xl
-          bg-gradient-to-b 
-          from-[#2FC2B8]/10 
-          to-[#2FC2B8]/20
+          bg-gradient-to-b from-[rgba(4,95,197,0.2)] to-[rgba(4,95,197,0.4)]
           border border-emerald-500/20
           flex items-center
         "
@@ -234,23 +233,24 @@ export default function StatsSection() {
           <div>
             <h2
     style={{ fontFamily: "var(--font-space)" }}
-    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#FF9CAA]"
+    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#0CA2FF]
+"
   >
     Multi-liquidity
   </h2>
 
   <h2
     style={{ fontFamily: "var(--font-space)" }}
-    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#FF9CAA]"
+    className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#0CA2FF]"
   >
     source aggregation
   </h2>
 
-  <div className="h-[3px] w-32 sm:w-40 md:w-48 lg:w-56 bg-[#76E3DC] mt-6 md:mt-8" />
+  <div className="h-[3px] w-32 sm:w-40 md:w-48 lg:w-56 bg-[#0CA2FF] mt-6 md:mt-8" />
 
   <p
     style={{ fontFamily: "var(--font-mona)" }}
-    className="text-xs sm:text-sm md:text-base font-semibold text-[#76E3DC] mt-4 md:mt-5"
+    className="text-xs sm:text-sm md:text-base font-semibold text-[#0CA2FF] mt-4 md:mt-5"
   >
     Enterprise-Grade OTC Infrastructure
   </p>

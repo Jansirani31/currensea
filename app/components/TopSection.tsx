@@ -45,7 +45,7 @@ export default function TopSection() {
             {/* TAG */}
             <div className="mb-6">
               <span className="inline-flex font-urbanist items-center gap-2 
-                               px-4 py-1.5 rounded-full
+                               px-4 py-1 rounded-full
                                bg-gradient-to-b from-white/20 to-white/50
                                border border-white/20
                                text-[16px] sm:text-sm text-white"
@@ -68,24 +68,24 @@ export default function TopSection() {
   style={{ fontFamily: "var(--font-space)" }}
   className="
     font-medium
-    text-5xl
-    sm:text-6xl
-    md:text-7xl
-    lg:text-[80px]
-    leading-[106%]
+    text-4xl
+    sm:text-5xl
+    md:text-4xl
+    lg:text-[72px]
+    leading-[110%]
     tracking-[-0.04em]
-
     bg-gradient-to-r
     from-[#EDEEF0]
     to-[rgba(237,238,240,0.8)]
     bg-clip-text
     text-transparent
-
-    drop-shadow-[0px_2.73px_1.37px_rgba(0,0,0,0.06)]
+    max-w-[1000px]
+    mx-auto
+    
   "
 >
-  Get the Best Price <br className="hidden sm:block" />
-  Without Complexity.
+  Buy Crypto Instantly <br />
+  with INR. No Middlemen.
 </h1>
 
             {/* DESCRIPTION */}
@@ -94,7 +94,7 @@ export default function TopSection() {
               className="
                 mt-4
                 font-medium
-                text-[16px] sm:text-[20px] lg:text-[20px]
+                text-[14px] sm:text-[20px] lg:text-[20px]
                 leading-[28px]
                 tracking-[-0.4px]
                 text-white/70
@@ -102,9 +102,7 @@ export default function TopSection() {
                 max-w-xl
               "
             >
-              CurrenSea intelligently aggregates liquidity from trusted OTC desks
-              and providers to deliver best-price execution, reduced slippage,
-              and complete trade visibility.
+              CurrenSea allows you to execute large-volume crypto trades effortlessly with zero slippage and competitive market pricing. Enjoy direct settlement without any middlemen involved.
             </p>
 
            {/* BUTTON 
@@ -151,13 +149,14 @@ export default function TopSection() {
           </div>
         </div>
       </div>*/}
+    {/*border  
     <div className="absolute bottom-0 left-0 w-full z-[-5] flex flex-col gap-[2px]">
   <div className="h-[1px] w-full border-t border-dotted border-white/15"></div>
   <div className="h-[1px] w-full border-t border-dotted border-white/15"></div>
   <div className="h-[1px] w-full border-t border-dotted border-white/15"></div>
   <div className="h-[1px] w-full border-t border-dotted border-white/15"></div>
   
-</div>
+</div>*/}
 
     </section>
   );

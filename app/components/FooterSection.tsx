@@ -20,18 +20,16 @@ export default function FooterSection() {
 
         {/* TEXT CONTENT */}
         <div className="relative z-10 max-w-3xl px-6">
-          <p   style={{ fontFamily: "var(--font-chivo)" }} className="text-[10px] tracking-[0.20em] bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent uppercase">
+          <p   style={{ fontFamily: "var(--font-chivo)" }} className="text-[12px] tracking-[0.20em] bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent uppercase">
             GET STARTED
           </p>
 
-          <h1  style={{ fontFamily: "var(--font-space)" }} className="mt-6 text-4xl tracking-[-0.02em] md:text-6xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-[#CBC7D3] leading-tight">
-            EARN MORE AS A <br /> LIQUIDITY PROVIDER
+          <h1  style={{ fontFamily: "var(--font-space)" }} className="mt-6 text-3xl md:text-4xl lg:text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-[#CBC7D3] leading-tight">
+            FUTURE OF FIAT-CRYPTO <br />INTEROPERABILITY.
           </h1>
 
           <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 mb-6 text-[#FFFFFFB2] text-sm md:text-base max-w-xl mx-auto">
-           Enhance your trading experience by providing liquidity to active over-the-counter
-           (OTC) trades. By doing so, you can earn competitive spreads while maintaining
-           complete control over your transactions and ensuring secure execution.
+          Discover unparalleled security in your transactions and enjoy highly competitive spreads by partnering with the most trusted OTC provider in the industry. Our commitment to reliability ensures that your trading experience is both safe and profitable.
           </p>
         </div>
       {/* LOGO SECTION */}

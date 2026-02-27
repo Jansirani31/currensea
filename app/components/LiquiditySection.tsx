@@ -29,9 +29,8 @@ export default function LiquiditySection() {
             </h2>
 
             <p className="text-[#D5D4D6] font-mono font-light text-sm sm:text-base leading-relaxed">
-              Provide USDC liquidity and process swaps through your bank
-              account every transaction you enable strengthens the network,
-              while you earn 2% on each trade.
+              Become a Liquidity Provider and earn on transactions. Maximize your idle capital by providing liquidity to the CurrenSea OTC desk for seamless fiat-to-crypto swaps and earn a 
+2% yield on eligible trades.
             </p>
           </div>
         </div>
@@ -60,7 +59,8 @@ export default function LiquiditySection() {
                 a Liquidity Provider
               </h2>
               <p style={{ fontFamily: "var(--font-mona)"}} className=" font-regular mt-8 text-[16px] md:text-[24px] text-[#D5D4D6]">
-              Provide USDC liquidity and process swaps through your bank account every transaction you enable strengthens the network, while you earn 2% on each trade.
+              Become a Liquidity Provider and earn on transactions. Maximize your idle capital by providing liquidity to the CurrenSea OTC desk for seamless fiat-to-crypto swaps and earn a 
+2% yield on eligible trades.
       </p>
             </div>
           </div>

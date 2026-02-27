@@ -38,6 +38,13 @@ export default function Header() {
             <a href="#AboutSection" className="hover:text-white transition">
               About us
             </a>
+            <a>
+              How it works
+            </a>
+            <a href="#FaqSection" className="hover:text-white transition">
+              FAQ
+            </a>
+            
             {/*}
             <a href="#" className="hover:text-white transition">
               Title
@@ -45,8 +52,7 @@ export default function Header() {
             */}
           </nav>
         </div>
-
-        {/* Desktop Buttons 
+        {/* 
         <div className="hidden lg:flex items-center gap-3">
           <button className="h-10 px-5 rounded-xl bg-white/10 backdrop-blur-md text-sm text-white hover:bg-white/20 transition">
             Login
@@ -55,7 +61,7 @@ export default function Header() {
           <button className="h-10 px-6 rounded-xl bg-white text-black text-sm font-medium hover:bg-gray-200 transition">
             Sign Up
           </button>
-        </div>*/}
+        </div> */}
 
         {/* Mobile Menu Button */}
         <button
@@ -83,7 +89,13 @@ export default function Header() {
           <a href="#" className="block hover:text-gray-300">
             Title
           </a>
-
+          <a href="#" className="block hover:text-gray-300">
+          How it works
+          </a>
+          <a href="#FaqSection" className="hover:text-white transition">
+          FAQ
+          </a>
+          {/*
           <div className="pt-4 space-y-3">
             <button className="w-full h-11 font-inter rounded-xl bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition">
               Login
@@ -92,8 +104,8 @@ export default function Header() {
             <button className="w-full h-11 font-mono rounded-xl bg-white text-black hover:bg-gray-200 transition">
               Sign Up
             </button>
-          </div>
-
+            </div> */}
+                
         </div>
       </div>
     </header>

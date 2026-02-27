@@ -10,8 +10,9 @@ export default function SwapSection() {
           SWAP
         </p>
 
-        <h2 style={{ fontFamily: "var(--font-space)"}} className="text-3xl text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight tracking-tight">
-          USDT IN RUPEE <br />
+        <h2 style={{ fontFamily: "var(--font-space)"}} className="text-3xl text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight">
+          RUPEE IN USDT 
+<br />
           OUT
         </h2>
       </div>
@@ -50,8 +51,8 @@ export default function SwapSection() {
             {/* LEFT */}
             <div className="pr-0 lg:pl-8 lg:pt-8 bg-white/4">
               <p style={{ fontFamily: "var(--font-mana)" }} className="text-[#FFFFFF]
- font-regular text-lg md:text-[24px] leading-relaxed max-w-xl px-6 pt-6 pb-6 md:pb-0 md:px-0 md:pt-0">
-               Seamlessly buy or sell USDT across multiple chains using your local fiat currency. Whether you go from fiat to crypto or crypto to fiat, It's fast, secure and truly peer to peer with P2P.me.
+ font-regular text-lg md:text-[20px] leading-relaxed max-w-xl px-6 pt-6 pb-6 md:pb-0 md:px-0 md:pt-0">
+               Move seamlessly between INR and USDT across multiple blockchains. Our direct onramp/offramp flow removes the complexity of peer-to-peer matching, offering a fast, secure, and automated way to manage your local fiat-to-crypto needs.
               </p>
               {/* BUTTON }
                <button className=" ml-auto group 

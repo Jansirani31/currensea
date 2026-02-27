@@ -49,7 +49,7 @@ export default function FaqSection() {
   ];
 
   return (
-    <section className="w-full bg-black py-16 md:py-24 px-4 md:px-6 overflow-hidden">
+    <section id="FaqSection" className="w-full bg-black py-16 md:py-24 px-4 md:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         <div

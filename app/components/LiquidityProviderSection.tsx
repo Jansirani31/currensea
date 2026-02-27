@@ -18,13 +18,13 @@ export default function LiquidityProviderSection() {
             </p>
 
             <h2 style={{ fontFamily: "var(--font-space)"}} className="text-2xl font-medium sm:text-3xl md:text-4xl lg:text-5xl  leading-tight">
-              EARN MORE AS A <br className="hidden sm:block" />
-              LIQUIDITY PROVIDER
+              OTC DESK FOR <br className="hidden sm:block" />
+              LARGE TRADES
             </h2>
 
             <p style={{ fontFamily: "var(--font-mona)"}} className="mt-6 font-medium text-gray-400 text-sm sm:text-base md:text-lg max-w-lg leading-relaxed pb-10">
-              Maximize the potential of your capital by actively providing liquidity,
-              allowing you to earn attractive returns on each and every trade you make.
+              Move capital seamlessly between INR and USDT with dedicated liquidity access, controlled pricing, and managed settlement.
+No public order books. No volatility shocks. Just direct execution.
             </p>
 
           </div>

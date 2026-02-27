@@ -86,20 +86,20 @@ export default function SecureSection() {
   relative z-10">
             {[
               {
-                title: "Institutional-grade security architecture",
-                desc: "Enterprise-level security protects assets, data, and transactions across the platform.",
+                title: "Architectural\nIntegrity",
+                desc: "Multi-layered security protocols protect assets and data across the entire platform.",
                 img: "/images/sec1.png",
                 icon: "/images/icons/secure-icon1.png",
               },
               {
-                title: "Institutional Security",
-                desc: "Transactions are recorded and traceable, ensuring auditability and confidence.",
+                title: "Real-Time\nMonitoring",
+                desc: "Execution tracking offers visibility into pricing, routing, and settlement.",
                 img: "/images/sec2.png",
                 icon: "/images/icons/secure-icon2.png",
               },
               {
-                title: "Real-Time Execution Monitoring",
-                desc: "Monitor trade execution in real time with visibility into pricing and routing.",
+                title: "Full Auditability\nsystem",
+                desc: "Transactions are on-chain, traceable, and ensure regulatory confidence.",
                 img: "/images/sec3.png",
                 icon: "/images/icons/secure-icon3.png",
               },
@@ -112,7 +112,7 @@ export default function SecureSection() {
                            bg-[url('/images/secure3-bg.png')
                            bg-white/[0.01] 
                            backdrop-blur-[40px] 
-                           px-4 pt-2 pb-0.5 
+                           px-4 pt-2 pb-0.5
                            sm:px-7 sm:pt-5 sm:pb-2
                            sm:w-[95%] sm:min-h-[120px]
                           flex flex-col justify-start
@@ -143,8 +143,8 @@ export default function SecureSection() {
                   </div>
                 </div>
 
-                <h3  style={{ fontFamily: "var(--font-mona)" }} className="text-[20px] sm:text-[20px] font-medium min-h-[48px] sm:min-h-[64px] text-center text-[#FFFFFF]
-mb-4">
+                <h3  style={{ fontFamily: "var(--font-mona)" }} className="text-[32px] sm:text-[20px] font-medium min-h-[48px] sm:min-h-[64px] text-center text-[#FFFFFF]
+  line-clamp-2 mb-4">
                   {card.title}
                 </h3>
 

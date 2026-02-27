@@ -2,23 +2,23 @@ import Image from "next/image";
 
 const steps = [
   {
-    title: "Submit\nYour Trade",
-    desc: "Place your buy or sell request in seconds with a simple, guided flow.",
+    title: "Select\nCurrency & Lock",
+    desc: "Choose your Currency (INR/USDT) and get the best live price to Lock in your rate and proceed.",
     img: "/images/trade1.png",
   },
   {
-    title: "Intelligent\nRouting",
-    desc: "Your trade is automatically routed to the best liquidity and pricing.",
+    title: "Secure your\nPayment",
+    desc: "Send funds via Bank Transfer directly to our secure account. Upload your receipt or UTR for automated tracking.",
     img: "/images/trade2.png",
   },
   {
-    title: "Secure\nExecution",
-    desc: "Trades execute with top security and compliance.",
+    title: "Rapid\nVerification",
+    desc: "Our engine performs a lightning-fast background audit of your payment to ensure security and compliance.",
     img: "/images/trade3.png",
   },
   {
-    title: "Fast\nSettlements",
-    desc: "Transactions settle quickly with minimal delays.",
+    title: "Instant\nSettlement",
+    desc: "Get currency in your wallet. The aggregator pays out immediately after verification.",
     img: "/images/trade4.png",
   },
 ];
@@ -31,13 +31,12 @@ export default function TradeSteps() {
 
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16 md:mb-20">
-          <h2 style={{ fontFamily: "var(--font-mona)"}} className="text-3xl sm:text-4xl lg:text-5xl font-medium font-Space tracking-tight">
-            TRADE IN 4 SIMPLE STEPS
-          </h2>
-
           <span style={{ fontFamily: "var(--font-inter)"}} className="text-sm text-blue-400 cursor-pointer hover:underline">
             [ How it works ]
           </span>
+          <h2 style={{ fontFamily: "var(--font-mona)"}} className="text-3xl sm:text-4xl lg:text-5xl font-medium font-Space tracking-tight">
+            TRADE IN 4 SIMPLE STEPS
+          </h2>
         </div>
 
         {/* Cards */}
@@ -54,7 +53,7 @@ export default function TradeSteps() {
         bg-white/1 backdrop-blur-[40px]
         opacity-95
         pt-[20px]
-        pb-[20px]
+        pb-[34px]
         px-[10px]
         flex flex-col items-center text-center
         transition-all duration-300
