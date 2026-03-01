@@ -1,6 +1,19 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function FeatureSection() {
+
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-200%"]);
 
   const features = [
     {
@@ -40,34 +53,36 @@ export default function FeatureSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="FeaturesSection"
-      className="bg-black text-white py-14 overflow-hidden"
+      className="relative h-[300vh] bg-black text-white"
     >
-      {/* TITLE */}
-      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <p
-          style={{ fontFamily: "var(--font-chivo)" }}
-          className="text-sm text-[#0077FF] mb-4"
-        >
-          FEATURES
-        </p>
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
 
-        <h2
-          style={{ fontFamily: "var(--font-space)" }}
-          className="text-4xl md:text-6xl font-medium leading-tight bg-gradient-to-b from-[#FFFFFF] to-[#CBC7D3] bg-clip-text text-transparent"
-        >
-          EXPLORE OUR <br /> FEATURES
-        </h2>
-      </div>
+        {/* TITLE */}
+        <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
+          <p
+            style={{ fontFamily: "var(--font-chivo)" }}
+            className="text-sm text-[#0077FF] mb-4"
+          >
+            FEATURES
+          </p>
 
-      {/* HORIZONTAL SWIPE */}
-      <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth touch-pan-x no-scrollbar">
-        <div className="flex w-[300%]">
+          <h2
+            style={{ fontFamily: "var(--font-space)" }}
+            className="text-4xl md:text-6xl font-medium leading-tight bg-gradient-to-b from-[#FFFFFF] to-[#CBC7D3] bg-clip-text text-transparent"
+          >
+            EXPLORE OUR <br /> FEATURES
+          </h2>
+        </div>
+
+        {/* HORIZONTAL ANIMATION */}
+        <motion.div style={{ x }} className="flex w-[300%]">
 
           {features.map((item, index) => (
             <div
               key={index}
-              className="w-screen flex-shrink-0 snap-start px-4"
+              className="w-screen flex-shrink-0 px-4"
             >
               <div className="relative min-h-[500px] lg:min-h-[430px] border border-white/10">
 
@@ -144,25 +159,25 @@ export default function FeatureSection() {
             </div>
           ))}
 
+        </motion.div>
+
+        {/* PAGINATION */}
+        <div className="flex items-center justify-center gap-2
+          mt-10 text-xs md:text-sm text-white tracking-widest
+          border border-white/10 bg-[#020202]
+          rounded-lg px-4 py-2 w-fit mx-auto">
+
+          <span>01</span>
+          <div className="text-white/70 tracking-[0.4em] hidden md:inline">::::::::::::::::::::</div>
+          <div className="text-white/70 tracking-[0.4em] inline md:hidden">:::::::::</div>
+          <span>02</span>
+          <div className="text-white/70 tracking-[0.4em] hidden md:inline">::::::::::::::::::::</div>
+          <div className="text-white/70 tracking-[0.4em] inline md:hidden">:::::::::</div>
+          <span>03</span>
+
         </div>
-      </div>
-
-      {/* PAGINATION */}
-      <div className="flex items-center justify-center gap-2
-        mt-10 text-xs md:text-sm text-white tracking-widest
-        border border-white/10 bg-[#020202]
-        rounded-lg px-4 py-2 w-fit mx-auto">
-
-        <span>01</span>
-        <div className="text-white/70 tracking-[0.4em] hidden md:inline">::::::::::::::::::::</div>
-        <div className="text-white/70 tracking-[0.4em] inline md:hidden">:::::::::</div>
-        <span>02</span>
-        <div className="text-white/70 tracking-[0.4em] hidden md:inline">::::::::::::::::::::</div>
-        <div className="text-white/70 tracking-[0.4em] inline md:hidden">:::::::::</div>
-        <span>03</span>
 
       </div>
-
     </section>
   );
 }
