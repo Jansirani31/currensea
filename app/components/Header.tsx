@@ -2,13 +2,29 @@
 
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50">
+   <header
+  className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+    scrolled
+      ? "bg-black/90 backdrop-blur-lg shadow-lg border-b border-white/10"
+      : "bg-transparent"
+  }`}
+>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 h-20 flex items-center justify-between">
 
         {/* LEFT SIDE */}
@@ -38,21 +54,16 @@ export default function Header() {
             <a href="#AboutSection" className="hover:text-white transition">
               About us
             </a>
-            <a>
+            <a href="#TradeSteps" className="hover:text-white transition">
               How it works
             </a>
             <a href="#FaqSection" className="hover:text-white transition">
               FAQ
             </a>
-            
-            {/*}
-            <a href="#" className="hover:text-white transition">
-              Title
-            </a>
-            */}
           </nav>
         </div>
-        {/* 
+
+        {/* Desktop Buttons */}
         <div className="hidden lg:flex items-center gap-3">
           <button className="h-10 px-5 rounded-xl bg-white/10 backdrop-blur-md text-sm text-white hover:bg-white/20 transition">
             Login
@@ -61,7 +72,7 @@ export default function Header() {
           <button className="h-10 px-6 rounded-xl bg-white text-black text-sm font-medium hover:bg-gray-200 transition">
             Sign Up
           </button>
-        </div> */}
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -74,8 +85,10 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden absolute top-20 left-0 w-full bg-black/95 backdrop-blur-lg transition-all duration-300 overflow-hidden ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden absolute top-20 left-0 w-full transition-all duration-300 overflow-hidden ${
+          open
+            ? "max-h-96 opacity-100 bg-black/95 backdrop-blur-lg"
+            : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-6 pb-6 pt-4 space-y-4 text-white">
@@ -86,29 +99,24 @@ export default function Header() {
           <a href="#AboutSection" className="block hover:text-gray-300">
             About us
           </a>
-          <a href="#" className="block hover:text-gray-300">
-            Title
+          <a href="#TradeSteps" className="block hover:text-gray-300">
+            How it works
           </a>
-          <a href="#" className="block hover:text-gray-300">
-          How it works
+          <a href="#FaqSection" className="block hover:text-gray-300">
+            FAQ
           </a>
-          <a href="#FaqSection" className="hover:text-white transition">
-          FAQ
-          </a>
-          {/*
+
           <div className="pt-4 space-y-3">
-            <button className="w-full h-11 font-inter rounded-xl bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition">
+            <button className="w-full h-11 rounded-xl bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition">
               Login
             </button>
 
-            <button className="w-full h-11 font-mono rounded-xl bg-white text-black hover:bg-gray-200 transition">
+            <button className="w-full h-11 rounded-xl bg-white text-black hover:bg-gray-200 transition">
               Sign Up
             </button>
-            </div> */}
-                
+          </div>
         </div>
       </div>
     </header>
   );
 }
-

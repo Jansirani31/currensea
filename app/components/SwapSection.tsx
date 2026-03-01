@@ -6,7 +6,8 @@ export default function SwapSection() {
 
       {/* ===== TOP TITLE ===== */}
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-16 text-center">
-        <p  style={{ fontFamily: "var(--font-chivo)"}} className="text-xs font-light tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white mb-6">
+        <p  style={{ fontFamily: "var(--font-chivo)"}} className="text-[#0077FF]
+ font-light tracking-widest  mb-6">
           SWAP
         </p>
 
@@ -21,16 +22,16 @@ export default function SwapSection() {
       <div className="w-full h-px bg-white/10" />
 
       {/* ===== BOTTOM AREA ===== */}
-      <div className="relative">
+      <div className="relative min-h-[500px] lg:min-h-[300px]">
 
         {/* FULL Background Image*/}
         <div className="absolute inset-0">
           <Image
-            src="/images/swap-bg-img.png"
+            src="/images/swap-bg2.png"
             alt="Swap Background"
             fill
             priority
-            className="object-cover object-right"
+            className="object-cover object-right scale-70 origin-right"
           />
         </div>
         {/* WAVE IMAGE */}
@@ -46,7 +47,7 @@ export default function SwapSection() {
         <div className="relative">
 
           {/* GRID = TABLE STYLE */}
-          <div className="grid lg:grid-cols-2 min-h-[300]">
+          <div className="grid lg:grid-cols-2 min-h-[300px]">
 
             {/* LEFT */}
             <div className="pr-0 lg:pl-8 lg:pt-8 bg-white/4">

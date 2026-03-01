@@ -28,7 +28,8 @@ export default function SecureSection() {
             fill
             className="absolute  left-0 object-cover opacity-30 pointer-events-none"
           />
-            <p style={{ fontFamily: "var(--font-chivo)" }} className=" text-[12px] font-light tracking-[0.20em] text-white/80 mb-6">
+            <p style={{ fontFamily: "var(--font-chivo)" }} className=" text-[12px] font-light text-[#0077FF]
+ mb-6">
               SECURITY
             </p>
 
@@ -88,20 +89,20 @@ export default function SecureSection() {
               {
                 title: "Architectural\nIntegrity",
                 desc: "Multi-layered security protocols protect assets and data across the entire platform.",
-                img: "/images/sec1.png",
-                icon: "/images/icons/secure-icon1.png",
+                img: "/images/sec3.png",
+                icon: "/images/icons/secure-icon3.png",
               },
               {
                 title: "Real-Time\nMonitoring",
                 desc: "Execution tracking offers visibility into pricing, routing, and settlement.",
-                img: "/images/sec2.png",
-                icon: "/images/icons/secure-icon2.png",
+                img: "/images/sec1.png",
+                icon: "/images/icons/secure-icon1.png",
               },
               {
                 title: "Full Auditability\nsystem",
                 desc: "Transactions are on-chain, traceable, and ensure regulatory confidence.",
-                img: "/images/sec3.png",
-                icon: "/images/icons/secure-icon3.png",
+                img: "/images/sec2.png",
+                icon: "/images/icons/secure-icon2.png",
               },
             ].map((card, i) => (
               <div
@@ -143,10 +144,10 @@ export default function SecureSection() {
                   </div>
                 </div>
 
-                <h3  style={{ fontFamily: "var(--font-mona)" }} className="text-[32px] sm:text-[20px] font-medium min-h-[48px] sm:min-h-[64px] text-center text-[#FFFFFF]
-  line-clamp-2 mb-4">
+                <h1  style={{ fontFamily: "var(--font-mona)" }} className="text-[36px] sm:text-[20px] font-medium min-h-[48px] sm:min-h-[64px] text-center text-[#FFFFFF]
+  line-clamp-2 mb-4  whitespace-pre-line">
                   {card.title}
-                </h3>
+                </h1>
 
                 <div className="w-[150px] h-[1px] sm:w-[180px] lg:w-[220px]  bg-gradient-to-r from-transparent via-white/15 to-transparent mx-auto mb-4" />
 

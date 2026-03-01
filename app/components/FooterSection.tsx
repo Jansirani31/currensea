@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function FooterSection() {
   return (
-    <section className="relative w-full bg-black text-white overflow-hidden">
+    <section className="relative w-full bg-black text-white lg:overflow-hidden">
 
       {/* ================= HERO ================= */}
       <div className="relative flex flex-col items-center text-center pt-18 overflow-hidden">
@@ -20,7 +20,7 @@ export default function FooterSection() {
 
         {/* TEXT CONTENT */}
         <div className="relative z-10 max-w-3xl px-6">
-          <p   style={{ fontFamily: "var(--font-chivo)" }} className="text-[12px] tracking-[0.20em] bg-gradient-to-r from-white via-purple-300 to-white bg-clip-text text-transparent uppercase">
+          <p   style={{ fontFamily: "var(--font-chivo)" }} className="text-[12px] text-[#0077FF] uppercase">
             GET STARTED
           </p>
 
@@ -31,68 +31,62 @@ export default function FooterSection() {
           <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 mb-6 text-[#FFFFFFB2] text-sm md:text-base max-w-xl mx-auto">
           Discover unparalleled security in your transactions and enjoy highly competitive spreads by partnering with the most trusted OTC provider in the industry. Our commitment to reliability ensures that your trading experience is both safe and profitable.
           </p>
-        </div>
+          
+            <button className="inline-flex items-center gap-2 
+                               bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9]
+                               px-8 py-3 rounded-full text-sm font-medium 
+                               hover:opacity-90 transition">
+
+               START SWAP NOW
+
+              <Image
+                src="/images/icons/common-whitearrow-icon.png"
+                alt="arrow"
+                width={14}
+                height={14}
+              />
+            </button>
+          
       {/* LOGO SECTION */}
-<div className="relative w-full -mt-1 sm:mt-16 overflow-hidden">
+<div className="relative w-full mt-6 sm:mt-10 -mb-32 sm:-mb-48 lg:-mb-76 ">
 
   {/* BLUE BACKGROUND */}
-  <div className="absolute 
-    inset-x-0 top-0 
-    h-[280px] sm:h-auto
-    sm:bottom-[300px]">
-    <Image
-      src="/images/footer-bg1.png"
-      alt="background"
-      fill
-      className="object-cover"
-      priority
-    />
-    <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent pointer-events-none" />
-  </div>
+<div
+  className="absolute left-1/2 -translate-x-1/2
+             w-screen
+             top-0
+             h-[120px] sm:h-[420px] lg:h-[530px]">
+  <Image
+    src="/images/footer-bg1.png"
+    alt="background"
+    fill
+    className="object-cover"
+    priority
+  />
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent pointer-events-none" />
+</div>
 
-  {/*LOGO */}
+  {/* LOGO */}
   <div className="relative w-full 
-      h-[280px] sm:h-[550px]   
-      flex justify-center items-start">
-
+                  h-[220px] sm:h-[420px] lg:h-[530px]
+                  flex justify-center items-center">
     <Image
       src="/images/footer-bg.png"
       alt="logo"
       fill
-      className="object-cover object-center lg:object-contain lg:object-[center_-40px]"
-      priority
-    />
-
-    {/* BLUR STRIP */}
-    <div className="absolute hidden sm:block top-[200px] sm:top-[240px] left-0 w-full h-[120px] sm:h-[140px]
-      bg-black/50 backdrop-blur-md pointer-events-none"
-    />
-  </div>
-
-  {/* WATERMARK */}
-  <div className="hidden sm:block absolute 
-  bottom-[20px] sm:bottom-0
-  left-1/2 -translate-x-1/2
-  w-full max-w-[1400px]
-  h-[120px] sm:h-[250px]
-  z-10
-  backdrop-blur-[48px]
-  bg-[linear-gradient(180deg,rgba(2,2,2,0)_0%,#000000_8.26%)]">
-
-    <Image
-      src="/images/footer-bg2.png"
-      alt="CurrenSea"
-      fill
-      className="object-contain object-center 
-                 md:w-[70%] lg:w-[60%] xl:w-[50%] z-0 pb-8
-                 "
+      className="object-contain lg:object-[center_-70px]  object-[center_-30px]"
       priority
     />
   </div>
 
 </div>
+</div>
+
+  
 
 </div>
+
+
 
 
       {/* ================= BOTTOM BAR ================= */}

@@ -14,7 +14,7 @@ import FooterSection from "./components/FooterSection";
 export default function Page() {
   return (
     <>
-      <Header />
+      <Header/>
       <TopSection/>
       <StatsSection/>
       <FeaturesSection/>

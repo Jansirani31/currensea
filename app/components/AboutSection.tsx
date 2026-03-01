@@ -18,7 +18,7 @@ export default function AboutSection() {
               [ ABOUT ]
             </p>
 
-            <h1  style={{ fontFamily: "var(--font-space)" }} className="text-2xl font-regular md:text-5xl lg:text-6xl font-medium font-[var(--font-space-grotesk0)] leading-tight">
+            <h1  style={{ fontFamily: "var(--font-space)" }} className="text-2xl font-regular md:text-4xl lg:text-5xl font-medium font-[var(--font-space-grotesk0)] leading-tight">
               Why Choose Our<br />
               <span  style={{ fontFamily: "var(--font-space)" }} className="text-[#613FE7] mr-2">
               CurrenSea 
@@ -29,7 +29,7 @@ export default function AboutSection() {
             </h1>
 
             <p style={{ fontFamily: "var(--font-mona)"}} 
-                className=" font-light mt-8 text-[16px] md:text-[24px] leading-relaxed text-[#FFFFFF]
+                className=" font-light mt-8 text-[14px] md:text-[20px] leading-relaxed text-[#FFFFFF]
 ">
               CurrenSea is built for institutions and professional traders who demand precision. We eliminate the volatility and uncertainty of retail exchanges, providing a reliable, high-volume gateway for participants who require total control over their execution.
             </p>
@@ -41,7 +41,7 @@ export default function AboutSection() {
               src="/images/about-bg.png"
               alt="About illustration"
               fill
-              className="object-cover rounded-2xl
+              className="object-cover object-[center_-20px]
               [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]
              [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
               priority

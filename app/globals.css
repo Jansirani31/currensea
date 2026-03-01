@@ -133,6 +133,15 @@ body {
 .animate-fadeIn {
   animation: fadeIn 1s ease forwards;
 }
+/* Hide scrollbar but keep scroll working */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE */
+  scrollbar-width: none;     /* Firefox */
+}
 
 
 

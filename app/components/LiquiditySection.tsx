@@ -2,7 +2,8 @@ import Image from "next/image";
 
 export default function LiquiditySection() {
   return (
-    <section className="relative bg-black text-white pt-3 pb-20 overflow-hidden">
+    <section className="relative bg-black bg-[#000000]
+ text-white pt-3 pb-20 overflow-hidden">
       
       <div className="max-w-8xl mx-auto px-6 relative">
 
@@ -36,17 +37,16 @@ export default function LiquiditySection() {
         </div>
 
 
-        {/* ================= DESKTOP LAYOUT ================= */}
-        <div className="hidden lg:block relative w-full h-[600px]">
+       <div className="hidden lg:flex relative h-[600px] items-center">
+  <Image
+    src="/images/liquidity-bg1.png"
+    alt="Liquidity background"
+    width={900}
+    height={900}
+    priority
+    className="object-cover object-right lg:object-[right_-140px] scale-110 md:scale-105 lg:scale-100 origin-right"
+  />
 
-          {/* Background Image */}
-          <Image
-            src="/images/liquidity-bg1.png"
-            alt="Liquidity background"
-            fill
-            className="object-contain"
-            priority
-          />
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/40" />
@@ -70,5 +70,5 @@ export default function LiquiditySection() {
       </div>
     </section>
   );
-} 
+}  
 

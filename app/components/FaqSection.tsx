@@ -62,7 +62,8 @@ export default function FaqSection() {
 
             {/* LEFT SIDE */}
             <div className="space-y-6 md:space-y-8">
-              <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white tracking-widest text-xs md:text-sm">
+              <p style={{ fontFamily: "var(--font-chivo)" }} className="  text-[#0077FF]
+ bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white tracking-widest text-xs md:text-sm font-light">
                 FAQS
               </p>
 

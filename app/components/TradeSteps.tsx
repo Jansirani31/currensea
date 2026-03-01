@@ -9,12 +9,12 @@ const steps = [
   {
     title: "Secure your\nPayment",
     desc: "Send funds via Bank Transfer directly to our secure account. Upload your receipt or UTR for automated tracking.",
-    img: "/images/trade2.png",
+    img: "/images/trade3.png",
   },
   {
     title: "Rapid\nVerification",
     desc: "Our engine performs a lightning-fast background audit of your payment to ensure security and compliance.",
-    img: "/images/trade3.png",
+    img: "/images/trade2.png",
   },
   {
     title: "Instant\nSettlement",
@@ -25,7 +25,7 @@ const steps = [
 
 export default function TradeSteps() {
   return (
-    <section className="w-full bg-black text-white py-16 md:py-24">
+    <section id="TradeSteps" className="w-full bg-black text-white py-16 md:py-24">
       
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
 

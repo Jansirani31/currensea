@@ -132,7 +132,7 @@ export default function StatsSection() {
           md:col-span-2 md:row-span-2
           lg:col-span-2 lg:row-span-2
           rounded-2xl overflow-hidden
-          bg-[linear-gradient(180deg,#0E2865_0%,rgba(6,16,41,0)_100%)]
+          bg-gradient-to-b from-[#0E2865] to-transparent
           border border-[#0E286533]
         "
         >
@@ -163,12 +163,12 @@ export default function StatsSection() {
 
           {/* Content Overlay */}
           <div className=" relative z-10 h-full flex flex-col justify-end items-center text-center p-6 md:p-8 lg:p-10 pt-[60%]">
-            <p  style={{ fontFamily: "var(--font-mona)" }} className="leading-[32.22px] tracking-[-0.43px] text-center text-[#D3D8E9] p-4 rounded-lg max-w-[320px]     /* 👈 width kammi */
-    mx-auto">
+            <p  style={{ fontFamily: "var(--font-mona)" }} className="leading-[32.22px] tracking-[-0.43px] text-center text-[#D3D8E9]
+ p-4 rounded-lg max-w-[320px] mx-auto">
               Experience OTC trading the way it should be transparent,
               efficient, and built for scale.
             </p>
-            {/* BUTTON 
+            
           
            <button className="font-chivo bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
               <span>GET STARTED</span>
@@ -180,7 +180,7 @@ export default function StatsSection() {
               className="inline-block ml-2  "
             />
           </button>  
-        */}
+        
           </div>
         </div>
 
@@ -250,7 +250,8 @@ export default function StatsSection() {
 
   <p
     style={{ fontFamily: "var(--font-mona)" }}
-    className="text-xs sm:text-sm md:text-base font-semibold text-[#0CA2FF] mt-4 md:mt-5"
+    className="text-xs sm:text-sm md:text-base font-semibold text-[#0CA2FF]
+ mt-4 md:mt-5"
   >
     Enterprise-Grade OTC Infrastructure
   </p>

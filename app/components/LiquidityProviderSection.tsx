@@ -13,7 +13,8 @@ export default function LiquidityProviderSection() {
                   lg:sticky lg:top-24
                   h-fit">
 
-            <p style={{ fontFamily: "var(--font-mona)"}} className="text-xs font-medium tracking-widest bg-gradient-to-b from-white to-[#CBC7D3] bg-clip-text text-transparent mb-4">
+            <p style={{ fontFamily: "var(--font-mona)"}} className="text-xs font-medium text-[#0077FF]
+ mb-4">
               HIGHLIGHTS
             </p>
 
@@ -34,7 +35,7 @@ No public order books. No volatility shocks. Just direct execution.
             <div className="flex flex-col gap-6">
 
               <Image
-                src="/images/liquidity-provider1.png"
+                src="/images/liquidityprovider1.png"
                 alt="Liquidity Features"
                 width={500}
                 height={500}
@@ -42,7 +43,7 @@ No public order books. No volatility shocks. Just direct execution.
               />
 
               <Image
-                src="/images/liquidity-provider2.png"
+                src="/images/liquidityprovider2.png"
                 alt="Liquidity Features"
                 width={500}
                 height={500}
@@ -50,7 +51,7 @@ No public order books. No volatility shocks. Just direct execution.
               />
 
               <Image
-                src="/images/liquidity-provider3.png"
+                src="/images/liquidityprovider3.png"
                 alt="Liquidity Features"
                 width={500}
                 height={500}

@@ -30,12 +30,6 @@ export default function TopSection() {
 
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/10 z-0" />
-
-      {/* HEADER */}
-      <div className="relative z-20">
-        <Header />
-      </div>
-
       {/* HERO CONTENT */}
       <div className="relative z-20 flex items-center min-h-[100svh]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
@@ -71,12 +65,13 @@ export default function TopSection() {
     text-4xl
     sm:text-5xl
     md:text-4xl
-    lg:text-[72px]
+    lg:text-[70px]
     leading-[110%]
     tracking-[-0.04em]
     bg-gradient-to-r
     from-[#EDEEF0]
     to-[rgba(237,238,240,0.8)]
+    text-[#EDEEF0]
     bg-clip-text
     text-transparent
     max-w-[1000px]
@@ -94,15 +89,17 @@ export default function TopSection() {
               className="
                 mt-4
                 font-medium
-                text-[14px] sm:text-[20px] lg:text-[20px]
+                text-[10px] sm:text-[20px] lg:text-[20px]
                 leading-[28px]
                 tracking-[-0.4px]
                 text-white/70
-                text-[#FFFFFF]
+                text-[#FFFFFFB2]
                 max-w-xl
               "
             >
-              CurrenSea allows you to execute large-volume crypto trades effortlessly with zero slippage and competitive market pricing. Enjoy direct settlement without any middlemen involved.
+              CurrenSea allows you to execute large-volume crypto trades effortlessly with zero slippage and competitive market pricing. 
+              <span className="text-white/90
+">Enjoy direct settlement without any middlemen involved.</span>
             </p>
 
            {/* BUTTON 

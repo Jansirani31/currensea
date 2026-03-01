@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 export default function FeatureSection() {
@@ -19,7 +18,7 @@ export default function FeatureSection() {
       number: "02.",
       title: (
         <>
-          Off-Ramp to INR in  <br />
+          Off-Ramp to INR in <br />
           Seconds
         </>
       ),
@@ -44,12 +43,11 @@ export default function FeatureSection() {
       id="FeaturesSection"
       className="bg-black text-white py-14 overflow-hidden"
     >
-
       {/* TITLE */}
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
         <p
           style={{ fontFamily: "var(--font-chivo)" }}
-          className="text-sm tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-300 mb-4"
+          className="text-sm text-[#0077FF] mb-4"
         >
           FEATURES
         </p>
@@ -62,14 +60,14 @@ export default function FeatureSection() {
         </h2>
       </div>
 
-      {/* HORIZONTAL SCROLL */}
-      <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth">
+      {/* HORIZONTAL SWIPE */}
+      <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth touch-pan-x no-scrollbar">
         <div className="flex w-[300%]">
 
           {features.map((item, index) => (
             <div
               key={index}
-              className="w-screen flex-shrink-0 snap-center px-4"
+              className="w-screen flex-shrink-0 snap-start px-4"
             >
               <div className="relative min-h-[500px] lg:min-h-[430px] border border-white/10">
 
@@ -104,7 +102,6 @@ export default function FeatureSection() {
                   bg-white/[0.02] backdrop-blur-md border border-white/10 
                   p-6 md:p-8 md:absolute md:top-0 md:left-0">
 
-                  {/* Dynamic Icon */}
                   <Image
                     src={item.icon}
                     alt="icon"
@@ -152,14 +149,9 @@ export default function FeatureSection() {
 
       {/* PAGINATION */}
       <div className="flex items-center justify-center gap-2
-        mt-10
-        text-xs md:text-sm
-        text-white tracking-widest
-        border border-white/10
-        bg-[#020202]
-        rounded-lg
-        px-4 py-2
-        w-fit mx-auto">
+        mt-10 text-xs md:text-sm text-white tracking-widest
+        border border-white/10 bg-[#020202]
+        rounded-lg px-4 py-2 w-fit mx-auto">
 
         <span>01</span>
         <div className="text-white/70 tracking-[0.4em] hidden md:inline">::::::::::::::::::::</div>
