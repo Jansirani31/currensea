@@ -6,16 +6,18 @@ export default function SwapSection() {
 
       {/* ===== TOP TITLE ===== */}
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-16 text-center">
-        <p  style={{ fontFamily: "var(--font-chivo)"}} className="text-[#0077FF]
+        <p  style={{ fontFamily: "var(--font-chivo)"}} className="text-[#0077FF] text-sm
  font-light tracking-widest  mb-6">
           SWAP
         </p>
 
-        <h2 style={{ fontFamily: "var(--font-space)"}} className="text-3xl text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight">
-          RUPEE IN USDT 
-<br />
-          OUT
-        </h2>
+        <h2
+  style={{ fontFamily: "var(--font-space)" }}
+  className="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight"
+>
+  RUPEE IN USDT <br />
+  OUT
+</h2>
       </div>
 
       {/* Horizontal Line */}
