@@ -75,7 +75,7 @@ export default function StatsSection() {
               <p>Globally trusted liquidity execution</p>
 
               <Image
-                src="/images/icons/Stats-99-icon.svg"
+                src="/images/icons/Stats-99.svg"
                 alt="globe icon"
                 width={18}
                 height={18}
@@ -99,7 +99,7 @@ export default function StatsSection() {
           <div className="relative">
             {/* SVG - top right */}
             <Image
-              src="/images/icons/Stats-1200.png"
+              src="/images/icons/Stats-1200.svg"
               alt="icon"
               width={18}
               height={18}
@@ -200,7 +200,7 @@ export default function StatsSection() {
             <div className="flex items-center justify-between mb-4">
               <p className="text-sm text-[#74C8FC] font-medium">Backed by</p>
               <Image
-                src="/images/icons/Stats-bottomleft-icon.svg"
+                src="/images/icons/Stats-bottomleft.svg"
                 alt="icon"
                 width={22}
                 height={22}

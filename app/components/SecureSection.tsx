@@ -90,19 +90,19 @@ export default function SecureSection() {
                 title: "Architectural\nIntegrity",
                 desc: "Multi-layered security protocols protect assets and data across the entire platform.",
                 img: "/images/sec3.png",
-                icon: "/images/icons/secure-icon3.png",
+                icon: "/images/icons/secure1.svg",
               },
               {
                 title: "Real-Time\nMonitoring",
                 desc: "Execution tracking offers visibility into pricing, routing, and settlement.",
                 img: "/images/sec1.png",
-                icon: "/images/icons/secure-icon1.png",
+                icon: "/images/icons/secure2.svg",
               },
               {
                 title: "Full Auditability\nsystem",
                 desc: "Transactions are on-chain, traceable, and ensure regulatory confidence.",
                 img: "/images/sec2.png",
-                icon: "/images/icons/secure-icon2.png",
+                icon: "/images/icons/secure3.svg",
               },
             ].map((card, i) => (
               <div
@@ -131,17 +131,15 @@ export default function SecureSection() {
   />
                 {/* ICON */}
                 <div className="flex justify-center mb-3 mt-3">
-                  <div className="w-12 h-12 rounded-full 
-                                  bg-gradient-to-br from-[#4F1AD6] to-[#8059E3]
-                                  flex items-center justify-center">
+                 
                     <Image
                       src={card.icon}
                       alt="icon"
-                      width={20}
-                      height={20}
+                      width={40}
+                      height={40}
                       className="object-contain"
                     />
-                  </div>
+                  
                 </div>
 
                 <h1

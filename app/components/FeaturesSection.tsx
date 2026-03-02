@@ -13,19 +13,19 @@ export default function FeatureSection() {
       number: "01.",
       title: <>Buy crypto with INR.<br />Start your journey!</>,
       desc: "Convert your local currency into digital assets at institutional rates. No individual sellers, no escrow waiting—just direct, secure bank-to-wallet delivery.",
-      icon: "/images/icons/features-icon1.png",
+      icon: "/images/icons/features1.svg",
     },
     {
       number: "02.",
       title: <>Off-Ramp to INR in<br />Seconds</>,
       desc: "Cash out your digital assets directly into your bank account. Experience high-volume liquidity with zero slippage and immediate local settlement.",
-      icon: "/images/icons/features-icon2.png",
+      icon: "/images/icons/features2.svg",
     },
     {
       number: "03.",
       title: <>Deep Liquidity<br />Aggregated Swaps</>,
       desc: "Exchange one digital asset for another using our Smart Order Router. We find the most efficient path across global liquidity pools.",
-      icon: "/images/icons/features-icon3.png",
+      icon: "/images/icons/features3.svg",
     },
   ];
 

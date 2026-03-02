@@ -4,22 +4,22 @@ const steps = [
   {
     title: "Select\nCurrency & Lock",
     desc: "Choose your Currency (INR/USDT) and get the best live price to Lock in your rate and proceed.",
-    img: "/images/trade1.png",
+    img: "/images/trade1.svg",
   },
   {
     title: "Secure your\nPayment",
     desc: "Send funds via Bank Transfer directly to our secure account. Upload your receipt or UTR for automated tracking.",
-    img: "/images/trade3.png",
+    img: "/images/trade2.svg",
   },
   {
     title: "Rapid\nVerification",
     desc: "Our engine performs a lightning-fast background audit of your payment to ensure security and compliance.",
-    img: "/images/trade2.png",
+    img: "/images/trade3.svg",
   },
   {
     title: "Instant\nSettlement",
     desc: "Get currency in your wallet. The aggregator pays out immediately after verification.",
-    img: "/images/trade4.png",
+    img: "/images/trade4.svg",
   },
 ];
 

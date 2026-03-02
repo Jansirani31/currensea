@@ -62,8 +62,8 @@ export default function TopSection() {
   style={{ fontFamily: "var(--font-space)" }}
   className="
     font-medium
-    text-4xl
-    sm:text-5xl
+    text-5xl
+    sm:text-7xl
     md:text-4xl
     lg:text-[70px]
     leading-[110%]

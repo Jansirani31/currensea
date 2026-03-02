@@ -55,7 +55,7 @@ export default function FooterSection() {
   className="absolute left-1/2 -translate-x-1/2
              w-screen
              -top-6 sm:-top-10 lg:-top-16
-             h-[120px] sm:h-[420px] lg:h-[530px]">
+             h-[180px] sm:h-[500px] lg:h-[530px]">
   <Image
     src="/images/footer-bg1.png"
     alt="background"
@@ -68,7 +68,7 @@ export default function FooterSection() {
 
   {/* LOGO */}
   <div className="relative w-full 
-                  h-[220px] sm:h-[420px] lg:h-[530px] -top-6 sm:-top-14 lg:-top-12
+                  h-[300px] sm:h-[420px] lg:h-[530px] -top-6 sm:-top-14 lg:-top-12
                   flex justify-center items-center">
     <Image
       src="/images/footer-bg.png"
