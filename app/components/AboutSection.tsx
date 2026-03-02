@@ -18,7 +18,7 @@ export default function AboutSection() {
               [ ABOUT ]
             </p>
 
-            <h1  style={{ fontFamily: "var(--font-space)" }} className="text-2xl font-regular md:text-4xl lg:text-5xl font-medium font-[var(--font-space-grotesk0)] leading-tight">
+            <h1  style={{ fontFamily: "var(--font-space)" }} className="text-3xl font-regular md:text-4xl lg:text-5xl font-medium font-[var(--font-space-grotesk0)] leading-tight">
               Why Choose Our<br />
               <span  style={{ fontFamily: "var(--font-space)" }} className="text-[#613FE7] mr-2">
               CurrenSea 

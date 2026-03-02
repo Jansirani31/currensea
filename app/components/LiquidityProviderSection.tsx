@@ -18,7 +18,7 @@ export default function LiquidityProviderSection() {
               HIGHLIGHTS
             </p>
 
-            <h2 style={{ fontFamily: "var(--font-space)"}} className="text-2xl font-medium sm:text-3xl md:text-4xl lg:text-5xl  leading-tight">
+            <h2 style={{ fontFamily: "var(--font-space)"}} className="text-3xl font-medium sm:text-3xl md:text-4xl lg:text-5xl  leading-tight">
               OTC DESK FOR <br className="hidden sm:block" />
               LARGE TRADES
             </h2>

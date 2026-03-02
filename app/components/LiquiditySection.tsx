@@ -16,7 +16,7 @@ export default function LiquiditySection() {
               src="/images/liquidity-bg1.png"
               alt="Liquidity background"
               fill
-              className="object-cover object-[20%_70%]"
+              className="object-cover object-[20%_70%] scale-150 sm:scale-100"
               priority
             />
           </div>
@@ -36,7 +36,7 @@ export default function LiquiditySection() {
           </div>
         </div>
 
-
+ {/* ================= DESKTOP LAYOUT ================= */}
        <div className="hidden lg:flex relative h-[600px] items-center">
   <Image
     src="/images/liquidity-bg1.png"

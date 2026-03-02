@@ -89,7 +89,7 @@ export default function TopSection() {
               className="
                 mt-4
                 font-medium
-                text-[10px] sm:text-[20px] lg:text-[20px]
+                text-[16px] sm:text-[18px] lg:text-[20px]
                 leading-[28px]
                 tracking-[-0.4px]
                 text-white/70

@@ -33,7 +33,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <Image
-              src="/images/logo-s.png"
+              src="/images/header-logo.png"
               alt="CurrenSea"
               width={37}
               height={36}

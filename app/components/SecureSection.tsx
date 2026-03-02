@@ -113,7 +113,7 @@ export default function SecureSection() {
                            bg-[url('/images/secure3-bg.png')
                            bg-white/[0.01] 
                            backdrop-blur-[40px] 
-                           px-4 pt-2 pb-0.5
+                           p-4
                            sm:px-7 sm:pt-5 sm:pb-2
                            sm:w-[95%] sm:min-h-[120px]
                           flex flex-col justify-start

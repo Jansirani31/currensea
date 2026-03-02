@@ -24,16 +24,33 @@ export default function SwapSection() {
       {/* ===== BOTTOM AREA ===== */}
       <div className="relative min-h-[500px] lg:min-h-[300px]">
 
-        {/* FULL Background Image*/}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/swap-bg2.png"
-            alt="Swap Background"
-            fill
-            priority
-            className="object-cover object-right scale-70 origin-right"
-          />
-        </div>
+        {/* FULL Background Image */}
+<div className="absolute inset-0 flex items-center justify-center lg:block">
+
+ {/* Mobile */}
+<div className="w-full h-[500px] flex items-center justify-center lg:hidden">
+  <Image
+    src="/images/swap-bg2.png"
+    alt="Swap Background"
+    width={1200}
+    height={1200}
+    priority
+    className="object-contain mt-56 -translate-x-18 scale-135"
+  />
+</div>
+
+  {/* Desktop */}
+  <div className="hidden lg:block absolute inset-0">
+    <Image
+      src="/images/swap-bg2.png"
+      alt="Swap Background"
+      fill
+      priority
+      className="object-right scale-70 origin-right"
+    />
+  </div>
+
+</div>
         {/* WAVE IMAGE */}
 <div className="absolute inset-0 pointer-events-none">
   <Image

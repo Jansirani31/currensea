@@ -163,7 +163,7 @@ export default function FeatureSection() {
 
         {/* PAGINATION */}
         <div className="flex items-center justify-center gap-2
-          mt-10 text-xs md:text-sm text-white tracking-widest
+          mt-2 text-xs md:text-sm text-white tracking-widest
           border border-white/10 bg-[#020202]
           rounded-lg px-4 py-2 w-fit mx-auto">
 
