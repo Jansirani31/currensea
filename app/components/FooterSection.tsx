@@ -28,7 +28,7 @@ export default function FooterSection() {
             FUTURE OF FIAT-CRYPTO <br />INTEROPERABILITY.
           </h1>
 
-          <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 mb-6 text-[#FFFFFFB2] text-sm md:text-base max-w-xl mx-auto">
+          <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 mb-6 text-[#FFFFFFB2] text-base md:text-base max-w-xl mx-auto">
           Discover unparalleled security in your transactions and enjoy highly competitive spreads by partnering with the most trusted OTC provider in the industry. Our commitment to reliability ensures that your trading experience is both safe and profitable.
           </p>
           
