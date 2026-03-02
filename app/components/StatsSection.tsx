@@ -153,17 +153,17 @@ export default function StatsSection() {
           {/* Big Logo */}
           <div className="absolute inset-0 flex items-center justify-center z-0">
             <Image
-              src="/images/logo-s.png"
+              src="/images/statsSection-herocard.png"
               alt="Logo"
               width={380}
               height={380}
-              className="object-contain opacity-60 scale-75 md:scale-90 lg:scale-100"
+              className="object-contain opacity-60 scale-75 md:scale-90 lg:scale-100 -translate-y-10"
             />
           </div>
 
           {/* Content Overlay */}
           <div className=" relative z-10 h-full flex flex-col justify-end items-center text-center p-6 md:p-8 lg:p-10 pt-[60%]">
-            <p  style={{ fontFamily: "var(--font-mona)" }} className="leading-[32.22px] tracking-[-0.43px] text-center text-[#D3D8E9]
+            <p  style={{ fontFamily: "var(--font-mona)" }} className=" text-center text-[#D3D8E9]
  p-4 rounded-lg max-w-[320px] mx-auto">
               Experience OTC trading the way it should be transparent,
               efficient, and built for scale.

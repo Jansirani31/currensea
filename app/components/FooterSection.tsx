@@ -48,13 +48,13 @@ export default function FooterSection() {
             </button>
           
       {/* LOGO SECTION */}
-<div className="relative w-full mt-6 sm:mt-10 -mb-32 sm:-mb-48 lg:-mb-76 ">
+<div className="relative w-full mt-10 sm:mt-16 -mb-40 sm:-mb-56 lg:-mb-80">
 
   {/* BLUE BACKGROUND */}
 <div
   className="absolute left-1/2 -translate-x-1/2
              w-screen
-             top-0
+             -top-6 sm:-top-10 lg:-top-16
              h-[120px] sm:h-[420px] lg:h-[530px]">
   <Image
     src="/images/footer-bg1.png"
@@ -68,7 +68,7 @@ export default function FooterSection() {
 
   {/* LOGO */}
   <div className="relative w-full 
-                  h-[220px] sm:h-[420px] lg:h-[530px]
+                  h-[220px] sm:h-[420px] lg:h-[530px] -top-6 sm:-top-14 lg:-top-12
                   flex justify-center items-center">
     <Image
       src="/images/footer-bg.png"
@@ -78,20 +78,12 @@ export default function FooterSection() {
       priority
     />
   </div>
-
 </div>
 </div>
-
-  
-
 </div>
-
-
-
-
       {/* ================= BOTTOM BAR ================= */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-6">
+        <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row gap-6 text-sm text-white/60">
             <span>@2026. CurrenSea. All right reserved.</span>
           </div>

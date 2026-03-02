@@ -122,18 +122,6 @@ export default function FeatureSection() {
           ))}
 
         </motion.div>
-
-        {/* PAGINATION */}
-        <div className="flex items-center justify-center gap-2 mt-2 text-xs md:text-sm text-white tracking-widest border border-white/10 bg-[#020202] rounded-lg px-4 py-2 w-fit mx-auto">
-          <span>01</span>
-          <span className="hidden md:inline">::::::::::::::::::::</span>
-          <span className="inline md:hidden">:::::::::</span>
-          <span>02</span>
-          <span className="hidden md:inline">::::::::::::::::::::</span>
-          <span className="inline md:hidden">:::::::::</span>
-          <span>03</span>
-        </div>
-
       </div>
     </section>
   );

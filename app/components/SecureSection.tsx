@@ -144,10 +144,16 @@ export default function SecureSection() {
                   </div>
                 </div>
 
-                <h1  style={{ fontFamily: "var(--font-mona)" }} className="text-[36px] sm:text-[20px] font-medium min-h-[48px] sm:min-h-[64px] text-center text-[#FFFFFF]
-  line-clamp-2 mb-4  whitespace-pre-line">
-                  {card.title}
-                </h1>
+                <h1
+  style={{ fontFamily: "var(--font-mona)" }}
+  className="
+    text-[20px]           
+    sm:text-[28px]        
+    md:text-[32px]
+    lg:text-[36px]        
+    font-medium min-h-[48px] sm:min-h-[64px] text-center text-white line-clamp-2 mb-4 whitespace-pre-line">
+  {card.title}
+</h1>
 
                 <div className="w-[150px] h-[1px] sm:w-[180px] lg:w-[220px]  bg-gradient-to-r from-transparent via-white/15 to-transparent mx-auto mb-4" />
 

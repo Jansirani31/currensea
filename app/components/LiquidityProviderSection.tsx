@@ -23,7 +23,7 @@ export default function LiquidityProviderSection() {
               LARGE TRADES
             </h2>
 
-            <p style={{ fontFamily: "var(--font-mona)"}} className="mt-6 font-medium text-gray-400 text-sm sm:text-base md:text-lg max-w-lg leading-relaxed pb-10">
+            <p style={{ fontFamily: "var(--font-mona)"}} className="mt-6 font-medium text-gray-400 text-base sm:text-base md:text-lg max-w-lg leading-relaxed pb-10">
               Move capital seamlessly between INR and USDT with dedicated liquidity access, controlled pricing, and managed settlement.
 No public order books. No volatility shocks. Just direct execution.
             </p>

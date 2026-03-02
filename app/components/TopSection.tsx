@@ -68,15 +68,10 @@ export default function TopSection() {
     lg:text-[70px]
     leading-[110%]
     tracking-[-0.04em]
-    bg-gradient-to-r
-    from-[#EDEEF0]
-    to-[rgba(237,238,240,0.8)]
-    text-[#EDEEF0]
-    bg-clip-text
-    text-transparent
+    text-white
+    [text-shadow:0px_8px_40px_rgba(0,0,0,0.7)]
     max-w-[1000px]
     mx-auto
-    
   "
 >
   Buy Crypto Instantly <br />
@@ -102,8 +97,8 @@ export default function TopSection() {
 ">Enjoy direct settlement without any middlemen involved.</span>
             </p>
 
-           {/* BUTTON 
-            <button className="mt-2 px-4 py-3 
+           {/* BUTTON */}
+            <button className="mt-10 px-4 py-3 
                                bg-white text-black
                                inline-flex items-center
                                rounded-full 
@@ -120,7 +115,7 @@ export default function TopSection() {
                   />
             </button>
           
-         */}
+         
 
           </div>
 

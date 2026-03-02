@@ -71,7 +71,7 @@ export default function FaqSection() {
                 FREQUENTLY <br /> ASKED QUESTIONS
               </h2>
 
-              <p style={{ fontFamily: "var(--font-mona)" }} className="text-white/70 max-w-md text-sm md:text-base leading-relaxed">
+              <p style={{ fontFamily: "var(--font-mona)" }} className="text-white/70 max-w-md text-base md:text-base leading-relaxed">
                 Have questions? Our FAQ section has you covered with quick answers
                 to the most common inquiries.
               </p>
