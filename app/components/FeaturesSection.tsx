@@ -57,7 +57,9 @@ export default function FeatureSection() {
       id="FeaturesSection"
       className="relative h-[300vh] bg-black text-white"
     >
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+      <div className="sticky top-0 min-h-screen md:h-screen 
+flex flex-col justify-start md:justify-center 
+overflow-hidden pt-10 md:pt-0">
 
         {/* TITLE */}
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
