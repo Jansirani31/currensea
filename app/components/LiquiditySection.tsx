@@ -29,7 +29,7 @@ export default function LiquiditySection() {
               a Liquidity Provider
             </h2>
 
-            <p className="text-[#D5D4D6] font-mono font-light text-sm sm:text-base leading-relaxed">
+            <p style={{ fontFamily: "var(--font-mona)"}} className="text-[#D5D4D6] font-light text-sm sm:text-base leading-relaxed">
               Become a Liquidity Provider and earn on transactions. Maximize your idle capital by providing liquidity to the CurrenSea OTC desk for seamless fiat-to-crypto swaps and earn a 
 2% yield on eligible trades.
             </p>
