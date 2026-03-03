@@ -51,15 +51,19 @@ export default function FaqSection() {
   return (
     <section id="FaqSection" className="w-full bg-black py-16 md:py-24 px-4 md:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
+     <div
+  className="
+    rounded-3xl 
+    p-6 md:p-10 lg:p-16
 
-        <div
-          className="rounded-3xl p-6 md:p-10 lg:p-16 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/faqsection-bg.png')",
-          }}
-        >
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    bg-[url('/images/faqsection1.svg'),url('/images/faqsection2.png')]
+    bg-no-repeat
+    bg-[position:center,top_center]
+    bg-[size:cover,100%_55%]
+  "
+>
 
+         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* LEFT SIDE */}
             <div className="space-y-6 md:space-y-8">
               <p style={{ fontFamily: "var(--font-chivo)" }} className="  text-[#0077FF]
@@ -71,7 +75,7 @@ export default function FaqSection() {
                 FREQUENTLY <br /> ASKED QUESTIONS
               </h2>
 
-              <p style={{ fontFamily: "var(--font-mona)" }} className="text-white/70 max-w-md text-base md:text-base leading-relaxed">
+              <p style={{ fontFamily: "var(--font-mona)" }} className="text-white/70 max-w-md text-base; md:text-base leading-relaxed">
                 Have questions? Our FAQ section has you covered with quick answers
                 to the most common inquiries.
               </p>
