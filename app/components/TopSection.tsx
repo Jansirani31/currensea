@@ -93,27 +93,21 @@ export default function TopSection() {
               "
             >
               CurrenSea allows you to execute large-volume crypto trades effortlessly with zero slippage and competitive market pricing. 
-              <span className="text-white/90
-">Enjoy direct settlement without any middlemen involved.</span>
+              <span className="text-white/90">Enjoy direct settlement without any middlemen involved.</span>
             </p>
 
            {/* BUTTON */}
-            <button className="mt-10 px-4 py-3 
-                               bg-white text-black
-                               inline-flex items-center
-                               rounded-full 
-                               text-sm font-medium
-                               hover:bg-gray-200 
-                               transition-all duration-300">
-              <span>GET STARTED NOW</span>
-                  <Image 
-                    src="/images/icons/common-blackarrow-icon.svg"
-                    alt="arrow"
-                    width={14}
-                    height={14}
-                    className="inline-block ml-2 "
-                  />
-            </button>
+          <a href="https://app.currensea.in/"target="_blank"rel="noopener noreferrer"
+             className="mt-10 px-4 py-3 bg-white text-black inline-flex items-center rounded-full text-sm font-medium hover:bg-gray-200 transition-all duration-300">
+             <span>GET STARTED NOW</span>
+            <Image 
+            src="/images/icons/common-blackarrow-icon.svg"
+            alt="arrow"
+            width={14}
+            height={14}
+            className="inline-block ml-2"
+            />
+          </a>
           
          
 

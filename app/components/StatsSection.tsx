@@ -169,18 +169,17 @@ export default function StatsSection() {
               efficient, and built for scale.
             </p>
             
-          
-           <button className="font-chivo bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
+          <a href="https://app.currensea.in/"target="_blank"rel="noopener noreferrer"
+             className="font-chivo inline-flex items-center bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
               <span>GET STARTED</span>
               <Image
-              src="/images/icons/common-whitearrow-icon.png"
-              alt="arrow"
-              width={14}
-              height={14}
-              className="inline-block ml-2  "
-            />
-          </button>  
-        
+                src="/images/icons/common-whitearrow-icon.png"
+                alt="arrow"
+                width={14}
+                height={14}
+                className="ml-2"
+              />
+          </a>
           </div>
         </div>
 

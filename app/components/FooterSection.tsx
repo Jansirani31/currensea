@@ -31,21 +31,16 @@ export default function FooterSection() {
           <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 mb-6 text-[#FFFFFFB2] text-base md:text-base max-w-xl mx-auto">
           Discover unparalleled security in your transactions and enjoy highly competitive spreads by partnering with the most trusted OTC provider in the industry. Our commitment to reliability ensures that your trading experience is both safe and profitable.
           </p>
-          
-            <button className="inline-flex items-center gap-2 
-                               bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9]
-                               px-8 py-3 rounded-full text-sm font-medium 
-                               hover:opacity-90 transition">
-
-               START SWAP NOW
-
-              <Image
-                src="/images/icons/common-whitearrow-icon.png"
-                alt="arrow"
-                width={14}
-                height={14}
-              />
-            </button>
+          <a href="https://app.currensea.in/"target="_blank"rel="noopener noreferrer"
+             className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
+             START SWAP NOW
+             <Image
+             src="/images/icons/common-whitearrow-icon.png"
+             alt="arrow"
+             width={14}
+             height={14}
+             />
+          </a>
           
       {/* LOGO SECTION */}
 <div className="relative w-full mt-10 sm:mt-16 -mb-40 sm:-mb-56 lg:-mb-80">

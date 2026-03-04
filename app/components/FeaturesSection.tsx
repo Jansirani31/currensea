@@ -41,7 +41,8 @@ export default function FeatureSection() {
   );
 
   return (
-    <section
+    <section 
+      id="FeaturesSection"
       ref={sectionRef}
       className="relative bg-black text-white"
       style={{ height: `${features.length * 100}vh` }}
