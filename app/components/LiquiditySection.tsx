@@ -16,7 +16,7 @@ export default function LiquiditySection() {
               src="/images/liquidity-bg1.png"
               alt="Liquidity background"
               fill
-              className="object-cover object-[20%_70%] scale-150 sm:scale-100"
+              className="object-cover object-[20%_70%] scale-140 sm:scale-100"
               priority
             />
           </div>

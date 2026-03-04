@@ -41,12 +41,12 @@ export default function FeatureSection() {
   );
 
   return (
-    <section 
-      id="FeaturesSection"
-      ref={sectionRef}
-      className="relative bg-black text-white"
-      style={{ height: `${features.length * 100}vh` }}
-    >
+    <section
+  id="FeaturesSection"
+  ref={sectionRef}
+  className="relative bg-black text-white scroll-mt-20"
+  style={{ height: `${features.length * 100}vh` }}
+>
       <div className="sticky top-0 min-h-screen md:h-screen overflow-hidden flex flex-col justify-start md:justify-center pt-10 md:pt-0">
 
         {/* TITLE */}
