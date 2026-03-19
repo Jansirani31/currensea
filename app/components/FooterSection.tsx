@@ -1,91 +1,153 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function FooterSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative w-full bg-black text-white lg:overflow-hidden">
+    <>
+      <style>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes floatLogo {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-10px); }
+        }
+        @keyframes glowPulse {
+          0%, 100% { opacity: 0.35; }
+          50%       { opacity: 0.55; }
+        }
 
-      {/* ================= HERO ================= */}
-      <div className="relative flex flex-col items-center text-center pt-18 overflow-hidden">
+        .ft-label { opacity: 0; }
+        .ft-label.on { animation: fadeUp 0.5s ease forwards; animation-delay: 0.05s; }
 
-        {/* BLUE RADIAL GLOW */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[45%] left-1/2 -translate-x-1/2
-                          w-[1400px] h-[900px]
-                          max-w-full
-                          bg-[radial-gradient(circle_at_center,
-                          rgba(37,99,235,0.35),transparent_70%)]" />
-        </div>
+        .ft-heading { opacity: 0; }
+        .ft-heading.on { animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: 0.15s; }
 
-        {/* TEXT CONTENT */}
-        <div className="relative z-10 max-w-3xl px-6">
-          <p   style={{ fontFamily: "var(--font-chivo)" }} className="text-[12px] text-[#0077FF] uppercase">
-            GET STARTED
-          </p>
+        .ft-body { opacity: 0; }
+        .ft-body.on { animation: fadeUp 0.6s ease forwards; animation-delay: 0.35s; }
 
-          <h1  style={{ fontFamily: "var(--font-space)" }} className="mt-6 text-3xl md:text-4xl lg:text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-[#CBC7D3] leading-tight">
-            FUTURE OF FIAT-CRYPTO <br />INTEROPERABILITY.
-          </h1>
+        .ft-btn { opacity: 0; }
+        .ft-btn.on { animation: fadeUp 0.6s ease forwards; animation-delay: 0.5s; }
 
-          <p  style={{ fontFamily: "var(--font-mona)" }} className="mt-6 mb-6 text-[#FFFFFFB2] text-base md:text-base max-w-xl mx-auto">
-          Discover unparalleled security in your transactions and enjoy highly competitive spreads by partnering with the most trusted OTC provider in the industry. Our commitment to reliability ensures that your trading experience is both safe and profitable.
-          </p>
-          <a href="https://app.currensea.in/"target="_blank"rel="noopener noreferrer"
-             className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium hover:opacity-90 transition">
-             START SWAP NOW
-             <Image
-             src="/images/icons/common-whitearrow-icon.png"
-             alt="arrow"
-             width={14}
-             height={14}
-             />
-          </a>
-          
-      {/* LOGO SECTION */}
-<div className="relative w-full mt-10 sm:mt-16 -mb-40 sm:-mb-56 lg:-mb-80">
+        .ft-logo { opacity: 0; }
+        .ft-logo.on { animation: fadeIn 0.9s ease forwards; animation-delay: 0.65s; }
+        .ft-logo.on .logo-float { animation: floatLogo 5s ease-in-out infinite; animation-delay: 1.6s; }
 
-  {/* BLUE BACKGROUND */}
-<div
-  className="absolute left-1/2 -translate-x-1/2
-             w-screen
-             -top-6 sm:-top-10 lg:-top-16
-             h-[180px] sm:h-[500px] lg:h-[530px]">
-  <Image
-    src="/images/footer-bg1.png"
-    alt="background"
-    fill
-    className="object-cover"
-    priority
-  />
-  <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent pointer-events-none" />
-</div>
+        .glow-pulse { animation: glowPulse 4s ease-in-out infinite; }
 
-  {/* LOGO */}
-  <div className="relative w-full 
-                  h-[300px] sm:h-[420px] lg:h-[530px] -top-6 sm:-top-14 lg:-top-12
-                  flex justify-center items-center">
-    <Image
-      src="/images/footer-bg.png"
-      alt="logo"
-      fill
-      className="object-contain lg:object-[center_-70px]  object-[center_-30px]"
-      priority
-    />
-  </div>
-</div>
-</div>
-</div>
-      {/* ================= BOTTOM BAR ================= */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex flex-col sm:flex-row gap-6 text-sm text-white/60">
-            <span>@2026. CurrenSea. All right reserved.</span>
+        .ft-bar { opacity: 0; }
+        .ft-bar.on { animation: fadeIn 0.6s ease forwards; animation-delay: 0.85s; }
+
+        .btn-arrow { transition: transform 0.25s ease; }
+        a:hover .btn-arrow { transform: translateX(4px); }
+      `}</style>
+
+      <section ref={sectionRef} className="relative w-full bg-black text-white lg:overflow-hidden">
+
+        {/* ================= HERO ================= */}
+        <div className="relative flex flex-col items-center text-center pt-18 overflow-hidden">
+
+          {/* BLUE RADIAL GLOW */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="glow-pulse absolute top-[45%] left-1/2 -translate-x-1/2
+                            w-[1400px] h-[900px]
+                            max-w-full
+                            bg-[radial-gradient(circle_at_center,
+                            rgba(37,99,235,0.35),transparent_70%)]" />
+          </div>
+
+          {/* TEXT CONTENT */}
+          <div className="relative z-10 max-w-3xl px-6">
+            <p style={{ fontFamily: "var(--font-chivo)" }} className={`ft-label text-[12px] text-[#0077FF] uppercase ${isVisible ? "on" : ""}`}>
+              GET STARTED
+            </p>
+
+            {/* HEADING — original JSX untouched, just added ft-heading class */}
+            <h1 style={{ fontFamily: "var(--font-space)" }} className={`ft-heading mt-6 text-3xl md:text-4xl lg:text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-white to-[#CBC7D3] leading-tight ${isVisible ? "on" : ""}`}>
+              FUTURE OF FIAT-CRYPTO <br />INTEROPERABILITY.
+            </h1>
+
+            <p style={{ fontFamily: "var(--font-mona)" }} className={`ft-body mt-6 mb-6 text-[#FFFFFFB2] text-base md:text-base max-w-xl mx-auto ${isVisible ? "on" : ""}`}>
+              Discover unparalleled security in your transactions and enjoy highly competitive spreads by partnering with the most trusted OTC provider in the industry. Our commitment to reliability ensures that your trading experience is both safe and profitable.
+            </p>
+
+            <a href="https://app.currensea.in/" target="_blank" rel="noopener noreferrer"
+               className={`ft-btn inline-flex items-center gap-2 bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium hover:opacity-90 transition ${isVisible ? "on" : ""}`}>
+              START SWAP NOW
+              <Image
+                src="/images/icons/common-whitearrow-icon.png"
+                alt="arrow"
+                width={14}
+                height={14}
+                className="btn-arrow"
+              />
+            </a>
+
+            {/* LOGO SECTION */}
+            <div className={`ft-logo relative w-full mt-10 sm:mt-16 -mb-40 sm:-mb-56 lg:-mb-80 ${isVisible ? "on" : ""}`}>
+
+              {/* BLUE BACKGROUND */}
+              <div className="absolute left-1/2 -translate-x-1/2
+                               w-screen
+                               -top-6 sm:-top-10 lg:-top-16
+                               h-[180px] sm:h-[500px] lg:h-[530px]">
+                <Image
+                  src="/images/footer-bg1.png"
+                  alt="background"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent pointer-events-none" />
+              </div>
+
+              {/* LOGO */}
+              <div className="logo-float relative w-full
+                              h-[300px] sm:h-[420px] lg:h-[530px] -top-6 sm:-top-14 lg:-top-12
+                              flex justify-center items-center">
+                <Image
+                  src="/images/footer-bg.png"
+                  alt="logo"
+                  fill
+                  className="object-contain lg:object-[center_-70px]  object-[center_-30px]"
+                  priority
+                />
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
 
-    </section>
+        {/* ================= BOTTOM BAR ================= */}
+        <div className={`ft-bar border-t border-white/10 ${isVisible ? "on" : ""}`}>
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <div className="flex flex-col sm:flex-row gap-6 text-sm text-white/60">
+              <span>@2026. CurrenSea. All right reserved.</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </>
   );
 }
 

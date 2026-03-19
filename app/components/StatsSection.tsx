@@ -1,8 +1,39 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+function animCounter(el: HTMLElement, target: number, dur: number) {
+  let s = 0;
+  let step = target / (dur / 16);
+
+  const t = setInterval(() => {
+    s = Math.min(s + step, target);
+    el.textContent = String(Math.floor(s));
+    if (s >= target) clearInterval(t);
+  }, 16);
+}
 
 export default function StatsSection() {
+const sectionRef = useRef<HTMLElement>(null);
+const c1 = useRef<HTMLSpanElement>(null);
+const c2 = useRef<HTMLSpanElement>(null);
+useEffect(() => {
+  const section = sectionRef.current;
+  if (!section) return;
+
+  const io = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) {
+      if (c1.current) animCounter(c1.current, 99, 1500);
+      if (c2.current) animCounter(c2.current, 1200, 2000);
+      io.disconnect();
+    }
+  }, { threshold: 0.3 });
+
+  io.observe(section);
+
+  return () => io.disconnect();
+}, []);
   return (
-    <section className="relative z-10 w-full bg-black px-4 sm:px-6 lg:px-10 py-12 lg:py-16 pt-18 lg:pt-24">
+    <section ref={sectionRef} className="relative z-10 w-full bg-black px-4 sm:px-6 lg:px-10 py-12 lg:py-16 pt-18 lg:pt-24">
       <div className="
             max-w-7xl mx-auto grid
             grid-cols-1
@@ -25,16 +56,9 @@ export default function StatsSection() {
             ">
           {/* TOP SECTION */}
           <div>
-            <div className="h-[5px] bg-[#0CA2FF] rounded-2xl mb-6 w-full" />
-
-            <h2
-              style={{ fontFamily: "var(--font-space)" }}
-              className="
-              text-7xl font-medium text-[#0CA2FF]
-              text-right
-              "
-            >
-              99%
+            <div  style={{ fontFamily: "var(--font-space)" }}className="h-[5px] bg-[#0CA2FF] rounded-2xl mb-6 w-full" />
+            <h2 className="text-7xl font-medium text-[#0CA2FF] text-right">
+                <span ref={c1}>0</span>%
             </h2>
             <p style={{ fontFamily: "var(--font-mona)" }}
               className="
@@ -114,8 +138,8 @@ export default function StatsSection() {
           </div>
 
           <div>
-            <h2  style={{ fontFamily: "var(--font-space)" }} className="text-5xl md:text-[100px] lg:text-[80px] font-bold text-[#A2B6DD]">
-              1200+
+            <h2 style={{ fontFamily: "var(--font-space)" }} className="text-5xl md:text-[100px] lg:text-[80px] font-bold text-[#A2B6DD]">
+              <span ref={c2}>0</span>+
             </h2>
 
             <p  style={{ fontFamily: "var(--font-inter)" }} className="text-[14px] text-medium md:text-sm text-[#A2B6DD] mt-3">
