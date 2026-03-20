@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function FeatureSection() {
   const sectionRef = useRef(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const features = [
     {
@@ -35,13 +36,18 @@ export default function FeatureSection() {
     offset: ["start start", "end end"],
   });
 
-  // Smooth spring on horizontal scroll
   const rawX = useTransform(
     scrollYProgress,
     [0, 1],
     ["0%", `-${(features.length - 1) * 100}%`]
   );
   const x = useSpring(rawX, { stiffness: 80, damping: 20, mass: 0.6 });
+
+  // Progress dots — which slide is active
+  const slide0 = useTransform(scrollYProgress, [0, 0.33], [1, 0]);
+  const slide1 = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
+  const slide2 = useTransform(scrollYProgress, [0.66, 1], [0, 1]);
+  const dotOpacities = [slide0, slide1, slide2];
 
   return (
     <section
@@ -52,22 +58,63 @@ export default function FeatureSection() {
     >
       <div className="sticky top-0 min-h-screen md:h-screen overflow-hidden flex flex-col justify-start md:justify-center pt-10 md:pt-0">
 
-        {/* ── TITLE — exact copy, zero changes ── */}
+        {/* ── TITLE ── */}
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-          <p className="text-sm text-[#0077FF] mb-4">FEATURES</p>
+          {/* "FEATURES" tag — shimmer loop */}
+          <div className="relative inline-block mb-4 overflow-hidden rounded px-2 py-0.5">
+            <p className="text-sm text-[#0077FF] relative z-10">FEATURES</p>
+            <motion.span
+              className="absolute inset-0 pointer-events-none"
+              animate={{ x: ["-120%", "200%"] }}
+              transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
+              style={{
+                background:
+                  "linear-gradient(105deg, transparent 30%, rgba(0,119,255,0.18) 50%, transparent 70%)",
+              }}
+            />
+          </div>
+
           <h2 className="text-4xl md:text-6xl font-medium leading-tight bg-gradient-to-b from-[#FFFFFF] to-[#CBC7D3] bg-clip-text text-transparent">
             EXPLORE OUR <br /> FEATURES
           </h2>
         </div>
 
-        {/* SLIDES */}
+        {/* ── PROGRESS DOTS ── */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-2">
+          {dotOpacities.map((op, i) => (
+            <motion.div
+              key={i}
+              className="rounded-full bg-white"
+              style={{ opacity: op }}
+              animate={{ scale: hoveredIndex === i ? 1.4 : 1 }}
+              transition={{ duration: 0.2 }}
+              initial={{ width: 6, height: 6 }}
+            />
+          ))}
+        </div>
+
+        {/* ── SLIDES ── */}
         <motion.div style={{ x }} className="flex will-change-transform">
           {features.map((item, index) => (
             <div
               key={index}
               className="w-screen flex-shrink-0 px-4 flex items-center justify-center"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="relative min-h-[500px] lg:min-h-[430px] border border-white/10 w-full overflow-hidden">
+
+                {/* ── Hover border glow ── */}
+                <motion.div
+                  className="absolute inset-0 pointer-events-none z-20 rounded-sm"
+                  animate={{
+                    boxShadow:
+                      hoveredIndex === index
+                        ? "inset 0 0 0 1px rgba(0,119,255,0.45), 0 0 32px rgba(0,119,255,0.12)"
+                        : "inset 0 0 0 1px rgba(255,255,255,0)",
+                  }}
+                  transition={{ duration: 0.35 }}
+                />
 
                 {/* CENTER IMAGE — float loop */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -111,19 +158,26 @@ export default function FeatureSection() {
                   />
                 </motion.div>
 
-                {/* ── TOP LEFT CARD — slide in from left ── */}
+                {/* ── TOP LEFT CARD ── */}
                 <motion.div
                   initial={{ opacity: 0, x: -36 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, ease, delay: 0.15 + index * 0.08 }}
                   className="relative z-10 w-full md:w-1/2 md:h-1/2 bg-white/[0.02] backdrop-blur-md border border-white/10 p-6 md:p-8 md:absolute md:top-0 md:left-0"
                 >
-                  {/* Icon — hover bounce, exact same position */}
+                  {/* Icon — hover bounce */}
                   <motion.div
                     className="absolute left-8 bottom-8"
                     whileHover={{ scale: 1.15, rotate: 6 }}
                     transition={{ type: "spring", stiffness: 300, damping: 14 }}
                   >
+                    {/* Pulse ring on icon */}
+                    <motion.span
+                      className="absolute inset-0 rounded-full pointer-events-none"
+                      animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.6 }}
+                      style={{ border: "1px solid rgba(0,119,255,0.5)" }}
+                    />
                     <Image
                       src={item.icon}
                       alt="icon"
@@ -132,7 +186,7 @@ export default function FeatureSection() {
                     />
                   </motion.div>
 
-                  {/* Number — exact same className */}
+                  {/* Number */}
                   <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -142,7 +196,7 @@ export default function FeatureSection() {
                     {item.number}
                   </motion.p>
 
-                  {/* Title — exact same className: text-white */}
+                  {/* Title */}
                   <motion.h3
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -153,14 +207,14 @@ export default function FeatureSection() {
                   </motion.h3>
                 </motion.div>
 
-                {/* ── BOTTOM RIGHT CARD — slide in from right ── */}
+                {/* ── BOTTOM RIGHT CARD ── */}
                 <motion.div
                   initial={{ opacity: 0, x: 36 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, ease, delay: 0.2 + index * 0.08 }}
                   className="relative z-10 w-full md:w-1/2 md:h-1/2 bg-white/[0.02] backdrop-blur-md border border-white/10 p-6 md:p-8 mt-26 md:mt-0 md:absolute md:bottom-0 md:right-0 text-left"
                 >
-                  {/* Description — exact same className */}
+                  {/* Description */}
                   <motion.p
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -169,6 +223,22 @@ export default function FeatureSection() {
                   >
                     {item.desc}
                   </motion.p>
+
+                  {/* ── Slide progress bar ── */}
+                  <div className="absolute bottom-4 left-6 right-6 h-[1px] bg-white/10">
+                    <motion.div
+                      className="h-full bg-[#0077FF]"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{
+                        duration: 4,
+                        ease: "linear",
+                        delay: 0.6 + index * 0.08,
+                        repeat: Infinity,
+                        repeatDelay: 1,
+                      }}
+                    />
+                  </div>
                 </motion.div>
 
               </div>

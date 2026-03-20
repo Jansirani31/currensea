@@ -104,8 +104,17 @@ export default function TradeSteps() {
                 transition-colors duration-300
               "
             >
-              {/* Image — unchanged */}
-              <div className="relative w-[220px] h-[220px] mb-8">
+              {/* Image — subtle float animation */}
+              <motion.div
+                className="relative w-[220px] h-[220px] mb-8"
+                animate={{ y: [0, -6, 0] }}
+                transition={{
+                  duration: 3 + index * 0.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.5,
+                }}
+              >
                 <Image
                   src={step.img}
                   alt={step.title}
@@ -113,9 +122,9 @@ export default function TradeSteps() {
                   sizes="180px"
                   className="object-contain"
                 />
-              </div>
+              </motion.div>
 
-              {/* Title — fade up, color unchanged */}
+              {/* Title */}
               <motion.h3
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +136,7 @@ export default function TradeSteps() {
                 {step.title}
               </motion.h3>
 
-              {/* Description — fade up, color unchanged: text-gray-400 */}
+              {/* Description */}
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -147,5 +156,3 @@ export default function TradeSteps() {
     </section>
   );
 }
-
-

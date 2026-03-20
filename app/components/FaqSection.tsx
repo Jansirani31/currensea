@@ -7,6 +7,7 @@ export default function FaqSection() {
   const [active, setActive] = useState<number | null>(null);
   const [heights, setHeights] = useState<Record<number, number>>({});
   const [isVisible, setIsVisible] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const answerRefs = useRef<Record<number, HTMLDivElement | null>>({});
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -85,30 +86,36 @@ export default function FaqSection() {
           to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Label */
+        /* ── NEW: shimmer sweep on card hover ── */
+        @keyframes shimmerSweep {
+          from { transform: translateX(-100%) skewX(-15deg); }
+          to   { transform: translateX(300%) skewX(-15deg); }
+        }
+
+        /* ── NEW: active card left border pulse ── */
+        @keyframes borderPulse {
+          0%, 100% { opacity: 0.5; }
+          50%       { opacity: 1; }
+        }
+
         .txt-label { opacity: 0; }
         .txt-label.on { animation: fadeUp 0.5s ease forwards; animation-delay: 0s; }
 
-        /* Heading words */
         .txt-word { display: inline-block; opacity: 0; }
         .txt-word.on { animation: wordReveal 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
 
-        /* Body */
         .txt-body { opacity: 0; }
         .txt-body.on { animation: fadeUp 0.6s ease forwards; animation-delay: 0.42s; }
 
-        /* FAQ cards */
         .faq-card { opacity: 0; }
         .faq-card.on { animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
 
-        /* Answer words */
         .ans-word {
           display: inline-block;
           opacity: 0;
           animation: answerWord 0.38s ease forwards;
         }
 
-        /* Accordion */
         .faq-answer-wrap {
           overflow: hidden;
           transition: height 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.32s ease;
@@ -117,7 +124,6 @@ export default function FaqSection() {
           transition: transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.32s ease;
         }
 
-        /* + rotate */
         .faq-icon {
           display: inline-flex;
           align-items: center;
@@ -128,6 +134,40 @@ export default function FaqSection() {
           line-height: 1;
         }
         .faq-icon.open { transform: rotate(45deg); }
+
+        /* ── NEW: shimmer span ── */
+        .faq-shimmer {
+          position: absolute;
+          top: 0; left: 0;
+          width: 40%;
+          height: 100%;
+          background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 50%, transparent 70%);
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+        .faq-card-wrap:hover .faq-shimmer {
+          opacity: 1;
+          animation: shimmerSweep 0.6s ease forwards;
+        }
+
+        /* ── NEW: active left border ── */
+        .faq-active-bar {
+          position: absolute;
+          left: 0; top: 12px; bottom: 12px;
+          width: 2px;
+          border-radius: 9999px;
+          background: linear-gradient(to bottom, #0077FF, #613FE7);
+          opacity: 0;
+          transform: scaleY(0);
+          transform-origin: top;
+          transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+        }
+        .faq-active-bar.show {
+          opacity: 1;
+          transform: scaleY(1);
+          animation: borderPulse 2.5s ease infinite;
+        }
       `}</style>
 
       <section
@@ -151,7 +191,7 @@ export default function FaqSection() {
               {/* LEFT SIDE */}
               <div className="space-y-6 md:space-y-8">
 
-                {/* Label — fade up */}
+                {/* Label */}
                 <p
                   style={{ fontFamily: "var(--font-chivo)" }}
                   className={`txt-label text-[#0077FF] bg-clip-text bg-gradient-to-r from-white via-purple-300 to-white tracking-widest text-xs md:text-sm font-light ${isVisible ? "on" : ""}`}
@@ -159,7 +199,7 @@ export default function FaqSection() {
                   FAQS
                 </p>
 
-                {/* Heading — word by word blur-in */}
+                {/* Heading */}
                 <h2
                   style={{ fontFamily: "var(--font-space)" }}
                   className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight tracking-[-1.5px] md:tracking-[-2px]"
@@ -179,7 +219,7 @@ export default function FaqSection() {
                   ))}
                 </h2>
 
-                {/* Body — fade up */}
+                {/* Body */}
                 <p
                   style={{ fontFamily: "var(--font-mona)" }}
                   className={`txt-body text-white/70 max-w-md text-base md:text-base leading-relaxed ${isVisible ? "on" : ""}`}
@@ -193,22 +233,53 @@ export default function FaqSection() {
               <div className="space-y-4 md:space-y-6">
                 {faqs.map((item, index) => {
                   const isOpen = active === index;
+                  const isHovered = hoveredIndex === index;
                   const words = item.answer.split(" ");
 
                   return (
                     <div
                       key={index}
-                      className={`faq-card border border-white/8 rounded-2xl bg-[#080808] backdrop-blur-md overflow-hidden ${isVisible ? "on" : ""}`}
-                      style={{ animationDelay: `${0.1 + index * 0.07}s` }}
+                      className={`faq-card faq-card-wrap border rounded-2xl bg-[#080808] backdrop-blur-md overflow-hidden relative ${isVisible ? "on" : ""}`}
+                      style={{
+                        animationDelay: `${0.1 + index * 0.07}s`,
+                        borderColor: isOpen
+                          ? "rgba(97,63,231,0.45)"
+                          : isHovered
+                          ? "rgba(255,255,255,0.15)"
+                          : "rgba(255,255,255,0.08)",
+                        transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                        boxShadow: isOpen
+                          ? "0 0 20px rgba(97,63,231,0.12)"
+                          : "none",
+                      }}
+                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseLeave={() => setHoveredIndex(null)}
                     >
+                      {/* shimmer on hover */}
+                      <span className="faq-shimmer" />
+
+                      {/* active left bar */}
+                      <span className={`faq-active-bar ${isOpen ? "show" : ""}`} />
+
                       <button
                         onClick={() => toggle(index)}
                         className="w-full flex justify-between items-center px-5 md:px-6 py-4 md:py-5 text-left text-white"
                       >
-                        <span className="text-base md:text-lg pr-4">
+                        <span
+                          className="text-base md:text-lg pr-4"
+                          style={{
+                            color: isOpen ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.85)",
+                            transition: "color 0.3s ease",
+                          }}
+                        >
                           {item.question}
                         </span>
-                        <span className={`faq-icon text-xl md:text-2xl ${isOpen ? "open" : ""}`}>
+                        <span className={`faq-icon text-xl md:text-2xl ${isOpen ? "open" : ""}`}
+                          style={{
+                            color: isOpen ? "#613FE7" : "rgba(255,255,255,0.6)",
+                            transition: "color 0.3s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1)",
+                          }}
+                        >
                           +
                         </span>
                       </button>
@@ -228,7 +299,6 @@ export default function FaqSection() {
                             opacity: isOpen ? 1 : 0,
                           }}
                         >
-                          {/* Answer words animate in one-by-one when opened */}
                           {isOpen
                             ? words.map((word, wi) => (
                                 <span
@@ -254,4 +324,3 @@ export default function FaqSection() {
     </>
   );
 }
-

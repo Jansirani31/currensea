@@ -12,7 +12,7 @@ export default function SwapSection() {
       {/* ===== TOP TITLE ===== */}
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-16 text-center">
 
-        {/* "SWAP" — slide down fade */}
+        {/* "SWAP" */}
         <motion.p
           initial={{ opacity: 0, y: -12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function SwapSection() {
           SWAP
         </motion.p>
 
-        {/* "RUPEE IN USDT OUT" — word-by-word slide up */}
+        {/* "RUPEE IN USDT OUT" — word-by-word */}
         <motion.h2
           initial="hidden"
           whileInView="show"
@@ -36,7 +36,6 @@ export default function SwapSection() {
           style={{ fontFamily: "var(--font-space)" }}
           className="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight"
         >
-          {/* Line 1 */}
           {["RUPEE", "IN", "USDT"].map((word, i) => (
             <motion.span
               key={i}
@@ -50,7 +49,6 @@ export default function SwapSection() {
             </motion.span>
           ))}
           <br />
-          {/* Line 2 */}
           {["OUT"].map((word, i) => (
             <motion.span
               key={i}
@@ -66,7 +64,7 @@ export default function SwapSection() {
         </motion.h2>
       </div>
 
-      {/* Horizontal Line — draw animation */}
+      {/* Horizontal Line */}
       <motion.div
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
@@ -79,34 +77,66 @@ export default function SwapSection() {
       {/* ===== BOTTOM AREA ===== */}
       <div className="relative min-h-[500px] lg:min-h-[300px]">
 
-        {/* FULL Background Image — unchanged */}
+        {/* ── COIN IMAGE with animations ── */}
         <div className="absolute inset-0 flex items-center justify-center lg:block">
 
-          {/* Mobile */}
-          <div className="w-full h-[500px] flex items-center justify-center lg:hidden">
-            <Image
-              src="/images/swap-bg2.png"
-              alt="Swap Background"
-              width={1200}
-              height={1200}
-              priority
-              className="object-contain mt-56 -translate-x-18 scale-135"
-            />
+          {/* Mobile — infinite left scroll */}
+          <div className="w-full h-[500px] flex items-center justify-center lg:hidden overflow-hidden">
+            <motion.div
+              animate={{ x: [0, -30, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative"
+            >
+              {/* center glow pulse behind image */}
+              <motion.div
+                className="absolute inset-0 rounded-full pointer-events-none z-10"
+                animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.95, 1.05, 0.95] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                style={{
+                  background: "radial-gradient(ellipse 40% 60% at 50% 50%, rgba(97,63,231,0.35), transparent 70%)",
+                }}
+              />
+              <Image
+                src="/images/swap-bg2.png"
+                alt="Swap Background"
+                width={1200}
+                height={1200}
+                priority
+                className="object-contain mt-56 -translate-x-18 scale-135"
+              />
+            </motion.div>
           </div>
 
-          {/* Desktop */}
-          <div className="hidden lg:block absolute inset-0">
-            <Image
-              src="/images/swap-bg2.png"
-              alt="Swap Background"
-              fill
-              priority
-              className="object-right scale-70 origin-right"
+          {/* Desktop — subtle drift + center glow */}
+          <div className="hidden lg:block absolute inset-0 overflow-hidden">
+            {/* center glow */}
+            <motion.div
+              className="absolute inset-0 pointer-events-none z-10"
+              animate={{ opacity: [0.4, 0.75, 0.4], scale: [0.97, 1.03, 0.97] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                background:
+                  "radial-gradient(ellipse 30% 70% at 65% 50%, rgba(97,63,231,0.3), transparent 65%)",
+              }}
             />
+            {/* image drift right → left */}
+            <motion.div
+              className="absolute inset-0"
+              animate={{ x: [0, -18, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image
+                src="/images/swap-bg2.png"
+                alt="Swap Background"
+                fill
+                priority
+                className="object-right scale-70 origin-right"
+              />
+            </motion.div>
           </div>
         </div>
 
-        {/* WAVE IMAGE — unchanged */}
+        {/* WAVE IMAGE */}
         <div className="absolute inset-0 pointer-events-none">
           <Image
             src="/images/swap-bg1.png"
@@ -119,8 +149,6 @@ export default function SwapSection() {
         {/* CONTENT */}
         <div className="relative">
           <div className="grid lg:grid-cols-2 min-h-[300px]">
-
-            {/* LEFT — description fade up */}
             <div className="pr-0 lg:pl-8 lg:pt-8 bg-white/4">
               <motion.p
                 initial={{ opacity: 0, y: 22 }}
@@ -136,16 +164,15 @@ export default function SwapSection() {
                 and automated way to manage your local fiat-to-crypto needs.
               </motion.p>
             </div>
-
             <div className="py-30" />
           </div>
         </div>
 
-        {/* MIDDLE VERTICAL LINE — unchanged */}
+        {/* MIDDLE VERTICAL LINE */}
         <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-px bg-white/10" />
       </div>
 
-      {/* Bottom Line — unchanged */}
+      {/* Bottom Line */}
       <div className="w-full h-px bg-white/10" />
 
     </section>
