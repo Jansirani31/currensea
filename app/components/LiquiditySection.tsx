@@ -158,38 +158,6 @@ export default function LiquiditySection() {
                 Become a Liquidity Provider and earn on transactions. Maximize your idle capital by providing liquidity to the CurrenSea OTC desk for seamless fiat-to-crypto swaps and earn a 2% yield on eligible trades.
               </motion.p>
 
-              {/* ── Animated divider line — stronger ── */}
-              <div className="relative mt-10 h-[1px] w-full overflow-hidden">
-                {/* base draw */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease, delay: 0.9 }}
-                  style={{ transformOrigin: "left" }}
-                  className="absolute inset-0 bg-gradient-to-r from-white/30 via-white/15 to-transparent"
-                />
-                {/* glow pulse */}
-                <motion.div
-                  className="absolute inset-0"
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-                  style={{
-                    background:
-                      "linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 40%, transparent 100%)",
-                  }}
-                />
-                {/* sweep */}
-                <motion.div
-                  className="absolute top-0 h-full w-[120px]"
-                  animate={{ x: ["-120px", "110%"] }}
-                  transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 2.5, ease: "easeInOut", delay: 1.5 }}
-                  style={{
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent)",
-                  }}
-                />
-              </div>
-
             </div>
           </div>
         </div>

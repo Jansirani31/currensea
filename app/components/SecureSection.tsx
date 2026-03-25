@@ -68,43 +68,55 @@ export default function SecureSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.65, ease, delay: 0.2 }}
               style={{ fontFamily: "var(--font-space)" }}
-              className="font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-Space leading-tight tracking-[-0.02em] mb-8 bg-gradient-to-b from-white to-[#CBC7D3] bg-clip-text text-transparent"
+              className="font-medium text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-Space leading-tight tracking-[-0.02em] mb-6 bg-gradient-to-b from-white to-[#CBC7D3] bg-clip-text text-transparent"
             >
               SECURE AND <br /> TRANSPARENT.
             </motion.h2>
+
+            {/* ===== HEADING UNDERLINE ANIMATION ===== */}
+            <motion.div
+              className="relative mx-auto overflow-hidden"
+              style={{ width: "200px", height: "1px" }}
+            >
+              {/* Base line — draws left to right on view */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, ease, delay: 0.4 }}
+                style={{ transformOrigin: "left" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
+              />
+              {/* Blue glow sweep — loops continuously */}
+              <motion.div
+                className="absolute top-0 h-full w-[70px]"
+                animate={{ x: ["-70px", "270px"] }}
+                transition={{
+                  duration: 1.8,
+                  repeat: Infinity,
+                  repeatDelay: 2.0,
+                  ease: "easeInOut",
+                  delay: 1.4,
+                }}
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(0,119,255,0.95), rgba(140,190,255,1), rgba(0,119,255,0.95), transparent)",
+                }}
+              />
+              {/* Static glow pulse */}
+              <motion.div
+                className="absolute inset-0"
+                animate={{ opacity: [0.2, 0.6, 0.2] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(0,119,255,0.45) 35%, rgba(80,160,255,0.65) 50%, rgba(0,119,255,0.45) 65%, transparent)",
+                }}
+              />
+            </motion.div>
           </div>
 
-          {/* ===== DIVIDER — glow pulse + sweep ===== */}
-          <div className="relative top-2 md:top-5 mb-10 md:mb-16 z-10 h-[1px] overflow-hidden">
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease, delay: 0.3 }}
-              style={{ transformOrigin: "left" }}
-              className="absolute inset-0 border-t border-white/5"
-            />
-            <motion.div
-              className="absolute inset-0"
-              animate={{
-                opacity: [0.2, 0.7, 0.2],
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, rgba(0,119,255,0.4) 30%, rgba(80,160,255,0.7) 50%, rgba(0,119,255,0.4) 70%, transparent)",
-              }}
-            />
-            <motion.div
-              className="absolute top-0 h-full w-[100px]"
-              animate={{ x: ["-100px", "110%"] }}
-              transition={{ duration: 2.2, repeat: Infinity, repeatDelay: 2.5, ease: "easeInOut", delay: 1.2 }}
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, rgba(180,220,255,0.9), transparent)",
-              }}
-            />
-          </div>
+          
 
           {/* ===== CARDS ===== */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2 gap-y-3 gap-x-3 md:gap-5 relative z-10">
@@ -235,14 +247,27 @@ export default function SecureSection() {
                   {card.desc}
                 </motion.p>
 
-                {/* CARD IMAGE — float */}
+                {/* CARD IMAGE — float + hover scale + tilt */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, ease, delay: 0.5 + i * 0.12 }}
                   animate={{ y: [0, -6, 0] }}
+                  whileHover={{
+                    scale: 1.09,
+                    rotate: 2,
+                    y: -12,
+                    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+                  }}
                   className="mt-auto flex justify-center h-[200px] sm:h-[220px] sm:pb-0 items-center relative z-10"
+                  style={{
+                    filter:
+                      hoveredCard === i
+                        ? "drop-shadow(0 14px 28px rgba(79,26,214,0.35)) drop-shadow(0 4px 10px rgba(0,0,0,0.45))"
+                        : "drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
+                    transition: "filter 0.35s ease",
+                  }}
                 >
                   <Image
                     src={card.img}
@@ -262,6 +287,5 @@ export default function SecureSection() {
     </section>
   );
 }
-
 
 
