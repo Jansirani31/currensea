@@ -1,23 +1,55 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function AboutSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Scroll-based parallax
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const rawY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const parallaxY = useSpring(rawY, { stiffness: 60, damping: 20 });
+
+  const rawScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1.06, 1.02, 1.02, 1.06]);
+  const imageScale = useSpring(rawScale, { stiffness: 60, damping: 20 });
+
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.4, 1, 1, 0.4]);
+
   return (
     <section
       id="AboutSection"
+      ref={sectionRef}
       className="relative bg-black text-white overflow-hidden -mt-10"
     >
+      {/* Ambient bg glow */}
+      <motion.div
+        className="absolute pointer-events-none"
+        style={{
+          left: "45%",
+          top: "15%",
+          width: 700,
+          height: 500,
+          background: "radial-gradient(ellipse, rgba(97,63,231,0.07) 0%, transparent 70%)",
+          filter: "blur(50px)",
+        }}
+        animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.08, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+
       <div className="max-w-[1400px] mx-auto px-6 lg:px-20 pt-12 pb-16 lg:pt-20 lg:pb-24">
         <div className="flex flex-col lg:flex-row items-center gap-12">
 
           {/* LEFT SIDE */}
           <div className="w-full lg:w-[40%]">
 
-            {/* [ ABOUT ] */}
             <motion.p
               initial={{ opacity: 0, y: -12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +61,6 @@ export default function AboutSection() {
               [ ABOUT ]
             </motion.p>
 
-            {/* Heading*/}
             <motion.h1
               initial="hidden"
               whileInView="show"
@@ -41,7 +72,6 @@ export default function AboutSection() {
               style={{ fontFamily: "var(--font-space)" }}
               className="text-3xl font-regular md:text-4xl lg:text-5xl font-medium leading-tight"
             >
-              {/* "Why Choose Our" */}
               {["Why", "Choose", "Our"].map((word, i) => (
                 <motion.span
                   key={i}
@@ -54,10 +84,7 @@ export default function AboutSection() {
                   {word}
                 </motion.span>
               ))}
-
               <br />
-
-              {/* "CurrenSea"*/}
               <motion.span
                 variants={{
                   hidden: { opacity: 0, y: 36 },
@@ -68,8 +95,6 @@ export default function AboutSection() {
               >
                 CurrenSea
               </motion.span>
-
-              {/* "OTC?" */}
               <motion.span
                 variants={{
                   hidden: { opacity: 0, y: 36 },
@@ -81,7 +106,6 @@ export default function AboutSection() {
               </motion.span>
             </motion.h1>
 
-            {/* Description*/}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,31 +119,70 @@ export default function AboutSection() {
               retail exchanges, providing a reliable, high-volume gateway for
               participants who require total control over their execution.
             </motion.p>
-
           </div>
 
-          {/* RIGHT SIDE */}
-          <motion.div
-            initial={{ opacity: 0, scale: 1.04, x: 24 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.9, ease, delay: 0.2 }}
-            className="relative w-full lg:w-[60%] h-[280px] md:h-[380px] lg:h-[500px] -mt-6 md:mt-0"
-          >
-            <Image
-              src="/images/about-bg.png"
-              alt="About illustration"
-              fill
-              className="object-cover object-[center_-20px]
-                [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]
-                [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
-              priority
-            />
-          </motion.div>
+          {/* RIGHT SIDE — smooth image animations */}
+          <div className="relative w-full lg:w-[60%] h-[280px] md:h-[380px] lg:h-[500px] -mt-6 md:mt-0">
 
+            {/* Halo glow behind image */}
+            <motion.div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at 50% 60%, rgba(97,63,231,0.18) 0%, transparent 65%)",
+                filter: "blur(32px)",
+              }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.4, ease }}
+            />
+
+            {/* Image with parallax + scale */}
+            <motion.div
+              className="absolute inset-0"
+              style={{ y: parallaxY, scale: imageScale, opacity: imageOpacity }}
+            >
+              {/* Wipe reveal mask */}
+              <motion.div
+                className="absolute inset-0 z-10 pointer-events-none bg-black"
+                style={{ transformOrigin: "bottom" }}
+                initial={{ scaleY: 1 }}
+                whileInView={{ scaleY: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
+              />
+
+              <Image
+                src="/images/about-bg.png"
+                alt="About illustration"
+                fill
+                className="object-cover object-[center_-20px]
+                  [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]
+                  [-webkit-mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+                priority
+              />
+            </motion.div>
+
+            {/* Vignette */}
+            <div
+              className="absolute inset-0 z-20 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%)",
+              }}
+            />
+
+            {/* Breathing purple glow on image */}
+            <motion.div
+              className="absolute inset-0 z-20 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at 50% 40%, rgba(97,63,231,0.1) 0%, transparent 60%)",
+              }}
+              animate={{ opacity: [0.4, 0.9, 0.4] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
