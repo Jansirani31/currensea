@@ -47,7 +47,7 @@ function TiltCard({
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
-    const cx = (e.clientX - left) / width - 0.5;   // -0.5 to 0.5
+    const cx = (e.clientX - left) / width - 0.5;
     const cy = (e.clientY - top)  / height - 0.5;
     rotY.set(cx * maxTilt * 2);
     rotX.set(-cy * maxTilt * 2);
@@ -84,7 +84,6 @@ function TiltCard({
 }
 
 // ── Shimmer bar ───────────────────────────────────────────────────────────────
-// Fills to full width, then runs a shimmer sweep after
 function ShimmerBar({
   color,
   height = "5px",
@@ -103,7 +102,6 @@ function ShimmerBar({
         viewport={{ once: true }}
         transition={{ duration: 0.9, ease, delay }}
       >
-        {/* Shimmer sweep after fill */}
         <motion.div
           style={{
             position: "absolute", inset: 0,
@@ -233,7 +231,6 @@ function GlowCounter({
   useEffect(() => {
     if (!counterRef.current) return;
     const el = counterRef.current;
-    // attach glow trigger via data attr after counter fires
     (el as any).__onDone = () => {
       glowMv.set(1);
       setTimeout(() => glowMv.set(0), 700);
@@ -275,19 +272,15 @@ export default function StatsSection() {
       ref={sectionRef}
       className="relative z-10 w-full bg-black px-4 sm:px-6 lg:px-10 py-12 lg:py-16 pt-18 lg:pt-24"
     >
-      <div className="
-        relative max-w-7xl mx-auto grid
-        grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-        auto-rows-auto md:auto-rows-[220px]
-        gap-2
-      ">
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
 
         {/* ── 99% CARD ── */}
         <TiltCard
           delay={0}
           glowColor="rgba(12,162,255,0.6)"
           className="
-            md:row-span-2 lg:col-span-1 lg:row-span-2
+            sm:col-span-1 lg:col-span-1 lg:row-span-2
+            min-h-[200px] sm:min-h-[220px]
             flex flex-col justify-between
             p-6 rounded-2xl
             bg-gradient-to-b from-[rgba(208,89,247,0.1)] to-[rgba(234,89,247,0.2)]
@@ -301,13 +294,13 @@ export default function StatsSection() {
             </h2>
             <p
               style={{ fontFamily: "var(--font-mona)" }}
-              className="text-[16px] text-sm text-[#0CA2FF] text-right mt-2"
+              className="text-sm text-[#0CA2FF] text-right mt-2"
             >
               Settlement accuracy
             </p>
             <p
               style={{ fontFamily: "var(--font-mona)" }}
-              className="mt-12 text-xs sm:text-sm text-[#0CA2FF] leading-6 w-[160px] sm:w-[200px] lg:w-[220px]"
+              className="mt-8 text-xs sm:text-sm text-[#0CA2FF] leading-6"
             >
               Across high-value OTC transactions with institutional counterparties
             </p>
@@ -335,7 +328,8 @@ export default function StatsSection() {
           delay={0.1}
           glowColor="rgba(162,182,221,0.6)"
           className="
-            md:row-span-2 lg:col-span-1 lg:row-span-2
+            sm:col-span-1 lg:col-span-1 lg:row-span-2
+            min-h-[200px] sm:min-h-[220px]
             flex flex-col justify-between
             p-6 rounded-2xl
             bg-gradient-to-b from-[rgba(0,53,255,0.1)] to-[rgba(0,53,255,0.2)]
@@ -362,13 +356,13 @@ export default function StatsSection() {
           <div>
             <h2
               style={{ fontFamily: "var(--font-space)" }}
-              className="text-5xl md:text-[100px] lg:text-[80px] font-bold text-[#A2B6DD]"
+              className="text-5xl md:text-[80px] font-bold text-[#A2B6DD]"
             >
               <GlowCounter counterRef={c2} color="#A2B6DD" />+
             </h2>
             <p
               style={{ fontFamily: "var(--font-inter)" }}
-              className="text-[14px] text-medium md:text-sm text-[#A2B6DD] mt-3"
+              className="text-sm text-[#A2B6DD] mt-3"
             >
               OTC Trades Executed
             </p>
@@ -381,10 +375,9 @@ export default function StatsSection() {
           maxTilt={4}
           glowColor="rgba(129,75,254,0.65)"
           className="
-            relative
-            md:col-span-2 md:row-span-2
-            lg:col-span-2 lg:row-span-2
-            rounded-2xl overflow-hidden
+            sm:col-span-2 lg:col-span-2 lg:row-span-2
+            min-h-[320px] sm:min-h-[440px]
+            relative rounded-2xl overflow-hidden
             bg-gradient-to-b from-[#0E2865] to-transparent
             border border-[#0E286533]
           "
@@ -392,13 +385,12 @@ export default function StatsSection() {
           <Image src="/images/hero-bg-card3.png" alt="Hero background" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E2865]/70 via-[#061029]/70 to-black/80" />
 
-          {/* Cursor-parallax floating image */}
           <ParallaxImage src="/images/statsSection-herocard.png" alt="Logo" />
 
-          <div className="relative z-10 h-full flex flex-col justify-end items-center text-center p-6 md:p-8 lg:p-10 pt-[60%]">
+          <div className="relative z-10 h-full flex flex-col justify-end items-center text-center p-6 md:p-8 lg:p-10 pt-[55%]">
             <p
               style={{ fontFamily: "var(--font-mona)" }}
-              className="text-center text-[#D3D8E9] p-4 rounded-lg max-w-[320px] mx-auto"
+              className="text-center text-[#D3D8E9] p-4 rounded-lg max-w-[320px] mx-auto text-sm sm:text-base"
             >
               Experience OTC trading the way it should be transparent, efficient, and built for scale.
             </p>
@@ -448,8 +440,9 @@ export default function StatsSection() {
           delay={0.3}
           glowColor="rgba(116,200,252,0.6)"
           className="
-            md:col-span-2 lg:col-span-2
-            p-8 rounded-2xl
+            sm:col-span-1 lg:col-span-2
+            min-h-[200px] sm:min-h-[220px]
+            p-6 sm:p-8 rounded-2xl
             bg-gradient-to-b from-[rgba(116,200,252,0.1)] to-[rgba(116,200,252,0.2)]
             border border-[#74C8FC1A]
             flex items-center
@@ -468,7 +461,7 @@ export default function StatsSection() {
             <ShimmerBar color="#74C8FC" height="2px" delay={0.4} />
             <StaggerText
               lines={["Fintech & crypto"]}
-              className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#74C8FC] leading-tight"
+              className="text-3xl sm:text-4xl lg:text-6xl font-medium text-[#74C8FC] leading-tight"
               style={{ fontFamily: "var(--font-space)" }}
               delay={0.5}
             />
@@ -489,7 +482,8 @@ export default function StatsSection() {
           delay={0.4}
           glowColor="rgba(12,162,255,0.6)"
           className="
-            md:col-span-2 lg:col-span-2
+            sm:col-span-1 lg:col-span-2
+            min-h-[200px] sm:min-h-[220px]
             p-6 rounded-2xl
             bg-gradient-to-b from-[rgba(4,95,197,0.2)] to-[rgba(4,95,197,0.4)]
             border border-emerald-500/20
@@ -499,14 +493,14 @@ export default function StatsSection() {
           <div>
             <StaggerText
               lines={["Multi-liquidity", "source aggregation"]}
-              className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#0CA2FF]"
+              className="font-bold text-2xl sm:text-3xl lg:text-[46px] text-[#0CA2FF]"
               style={{ fontFamily: "var(--font-space)" }}
               delay={0.5}
             />
             <ShimmerBar color="#0CA2FF" height="3px" delay={0.7} />
             <motion.p
               style={{ fontFamily: "var(--font-mona)" }}
-              className="text-xs sm:text-sm md:text-base font-semibold text-[#0CA2FF] mt-4 md:mt-5"
+              className="text-xs sm:text-sm font-semibold text-[#0CA2FF] mt-4"
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

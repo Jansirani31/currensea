@@ -84,7 +84,6 @@ function ScrollIndicator() {
 }
 
 // ── Magnetic Button wrapper ───────────────────────────────────────────────────
-// Wraps any children — button pulls toward cursor (max ~10px)
 function MagneticButton({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -144,8 +143,6 @@ export default function TopSection() {
     setMounted(true);
   }, []);
 
-  // ── Mouse-tracking spotlight ──────────────────────────────────────────────
-  // Normalised mouse position (0–1) → smooth spring → content shifts ±12px / ±8px
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
   const smoothX = useSpring(mouseX, { stiffness: 60, damping: 20 });
@@ -163,7 +160,6 @@ export default function TopSection() {
     [mouseX, mouseY]
   );
 
-  // ── Scroll parallax ───────────────────────────────────────────────────────
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -174,7 +170,6 @@ export default function TopSection() {
   const contentY       = useTransform(scrollYProgress, [0, 0.6], ["0%", "18%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // Description words
   const descLine1 = "CurrenSea allows you to execute large-volume crypto trades effortlessly with zero slippage and competitive market pricing.".split(" ");
   const descLine2 = "Enjoy direct settlement without any middlemen involved.".split(" ");
 
@@ -182,7 +177,7 @@ export default function TopSection() {
     <>
       <section
         ref={ref}
-        className="relative w-full min-h-screen overflow-hidden"
+        className="relative w-full min-h-screen overflow-x-hidden"
         onMouseMove={handleSectionMouseMove}
       >
 
@@ -229,7 +224,7 @@ export default function TopSection() {
           className="relative z-20 flex items-center min-h-[100svh]"
         >
           {/* Vertical mouse shift separate so springs are independent */}
-          <motion.div style={{ y: contentShiftY }} className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <motion.div style={{ y: contentShiftY }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-3xl">
 
               {/* TAG */}
@@ -244,7 +239,7 @@ export default function TopSection() {
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="inline-flex font-urbanist items-center gap-2 px-4 py-1 rounded-full
                              bg-gradient-to-b from-white/20 to-white/50 border border-white/20
-                             text-[16px] sm:text-sm text-white cursor-default relative overflow-hidden"
+                             text-[14px] sm:text-sm text-white cursor-default relative overflow-hidden"
                   style={{ fontFamily: "var(--font-urbanist)" }}
                 >
                   <motion.span
@@ -272,11 +267,11 @@ export default function TopSection() {
                 </motion.span>
               </motion.div>
 
-              {/* TITLE */}
+              {/* TITLE — 2 lines, bigger font, no break */}
               <motion.h1
                 style={{ fontFamily: "var(--font-space)" }}
-                className="font-medium text-5xl sm:text-7xl md:text-4xl lg:text-[70px]
-                           leading-[110%] tracking-[-0.04em] text-white
+                className="font-medium text-[32px] sm:text-5xl md:text-4xl lg:text-[70px]
+                           leading-[115%] tracking-[-0.03em] text-white
                            [text-shadow:0px_8px_40px_rgba(0,0,0,0.7)]"
                 initial="hidden"
                 animate="show"
@@ -324,8 +319,8 @@ export default function TopSection() {
               {/* DESCRIPTION — word stagger */}
               <motion.p
                 style={{ fontFamily: "var(--font-mona)" }}
-                className="mt-4 font-medium text-[16px] sm:text-[18px] lg:text-[20px]
-                           leading-[28px] tracking-[-0.4px] text-white/70 text-[#FFFFFFB2] max-w-xl"
+                className="mt-4 font-medium text-[14px] sm:text-[16px] lg:text-[20px]
+                           leading-[26px] sm:leading-[28px] tracking-[-0.4px] text-white/70 text-[#FFFFFFB2] max-w-xl"
                 initial="hidden"
                 animate="show"
                 variants={{
@@ -367,12 +362,12 @@ export default function TopSection() {
                 </span>
               </motion.p>
 
-              {/* BUTTON — MagneticButton wrapper சேர்த்தது */}
+              {/* BUTTON */}
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease, delay: 1.1 }}
-                className="mt-10 inline-block relative"
+                className="mt-8 sm:mt-10 inline-block relative"
               >
                 <MagneticButton>
                   <motion.span

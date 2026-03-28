@@ -197,20 +197,7 @@ export default function FooterSection() {
             />
           ))}
 
-          {/* Static background glows — no mouse tracking */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
-            <div
-              className="glow-pulse absolute top-[45%] left-1/2 w-[1000px] h-[700px] max-w-full"
-              style={{ background: "radial-gradient(circle at center, rgba(37,99,235,0.3), transparent 65%)" }}
-            />
-            <div
-              className="glow-pulse absolute top-[50%] left-1/2 w-[700px] h-[500px] max-w-full"
-              style={{
-                background: "radial-gradient(circle at center, rgba(129,75,254,0.15), transparent 70%)",
-                animationDelay: "2.5s",
-              }}
-            />
-          </div>
+          
 
           {/* TEXT CONTENT */}
           <div className="relative z-10 max-w-3xl px-6">
@@ -255,36 +242,22 @@ export default function FooterSection() {
               trading experience is both safe and profitable.
             </p>
 
-            {/* CTA Button */}
-            <div className={`ft-btn inline-block relative ${isVisible ? "on" : ""}`}>
-              <span className="btn-ring" />
-              <span className="btn-ring-2" />
-              <a
-                href="https://app.currensea.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={() => setBtnHovered(true)}
-                onMouseLeave={() => setBtnHovered(false)}
-                className="btn-wrap inline-flex items-center gap-2 bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden"
-                style={{
-                  transform: btnHovered ? "scale(1.06)" : "scale(1)",
-                  boxShadow: btnHovered
-                    ? "0 0 36px rgba(129,75,254,0.55), 0 0 72px rgba(88,20,249,0.25)"
-                    : "0 0 14px rgba(129,75,254,0.2)",
-                }}
-              >
-                <span className="btn-shimmer" />
-                START SWAP NOW
-                <Image
-                  src="/images/icons/common-whitearrow-icon.png"
-                  alt="arrow"
-                  width={14}
-                  height={14}
-                  className="btn-arrow"
-                />
-              </a>
-            </div>
-
+           {/* CTA Button */}
+<div className={`ft-btn inline-block relative mt-0 lg:-mt-10 ${isVisible ? "on" : ""}`}>
+  <span className="btn-ring" />
+  <span className="btn-ring-2" />
+  <a
+    href="https://app.currensea.in/"
+    target="_blank"
+    rel="noopener noreferrer"
+    onMouseEnter={() => setBtnHovered(true)}
+    onMouseLeave={() => setBtnHovered(false)}
+    className="btn-wrap inline-flex items-center gap-2 bg-gradient-to-r from-[#5814F9] via-[#814BFE] to-[#5814F9] px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden"
+  >
+    <span className="btn-shimmer" />
+    START SWAP NOW
+  </a>
+</div>
             {/* LOGO SECTION */}
             <div className={`ft-logo relative w-full mt-10 sm:mt-16 -mb-40 sm:-mb-56 lg:-mb-80 ${isVisible ? "on" : ""}`}>
 
