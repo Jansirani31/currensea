@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { useRef, useState, useEffect, useCallback } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import Header from "./Header";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -62,16 +62,19 @@ function ScrollIndicator() {
       >
         Scroll
       </span>
+      {/* Animated dot travelling down the line */}
       <div className="relative w-[1px] h-8 overflow-hidden">
         <motion.div
           className="absolute top-0 left-0 w-full"
           style={{
             height: "100%",
-            background: "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)",
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)",
           }}
           animate={{ scaleY: [1, 0.3, 1], opacity: [1, 0.3, 1] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />
+        {/* Travelling dot */}
         <motion.div
           className="absolute left-1/2 -translate-x-1/2 rounded-full"
           style={{ width: 3, height: 3, background: "rgba(255,255,255,0.8)" }}
@@ -79,46 +82,6 @@ function ScrollIndicator() {
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeIn", repeatDelay: 0.3 }}
         />
       </div>
-    </motion.div>
-  );
-}
-
-// ── Magnetic Button wrapper ───────────────────────────────────────────────────
-function MagneticButton({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 200, damping: 18, mass: 0.5 });
-  const springY = useSpring(y, { stiffness: 200, damping: 18, mass: 0.5 });
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    x.set((e.clientX - cx) * 0.35);
-    y.set((e.clientY - cy) * 0.35);
-  }, [x, y]);
-
-  const handleMouseLeave = useCallback(() => {
-    x.set(0);
-    y.set(0);
-  }, [x, y]);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    el.addEventListener("mousemove", handleMouseMove);
-    el.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      el.removeEventListener("mousemove", handleMouseMove);
-      el.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [handleMouseMove, handleMouseLeave]);
-
-  return (
-    <motion.div ref={ref} style={{ x: springX, y: springY, display: "inline-block" }}>
-      {children}
     </motion.div>
   );
 }
@@ -135,7 +98,7 @@ export default function TopSection() {
       delay: Math.random() * 14,
       duration: 10 + Math.random() * 12,
       size: 1.5 + Math.random() * 2.5,
-      driftX: (Math.random() - 0.5) * 60,
+      driftX: (Math.random() - 0.5) * 60, // ← horizontal drift
     }))
   );
 
@@ -143,43 +106,25 @@ export default function TopSection() {
     setMounted(true);
   }, []);
 
-  const mouseX = useMotionValue(0.5);
-  const mouseY = useMotionValue(0.5);
-  const smoothX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-  const smoothY = useSpring(mouseY, { stiffness: 60, damping: 20 });
-  const contentShiftX = useTransform(smoothX, [0, 1], [-12, 12]);
-  const contentShiftY = useTransform(smoothY, [0, 1], [-8, 8]);
-
-  const handleSectionMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
-      if (!ref.current) return;
-      const { left, top, width, height } = ref.current.getBoundingClientRect();
-      mouseX.set((e.clientX - left) / width);
-      mouseY.set((e.clientY - top) / height);
-    },
-    [mouseX, mouseY]
-  );
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const bgY     = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  // Subtle background zoom breathe (scale only, no layout shift)
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.18]);
-  const contentY       = useTransform(scrollYProgress, [0, 0.6], ["0%", "18%"]);
+
+  const contentY = useTransform(scrollYProgress, [0, 0.6], ["0%", "18%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  // Description words split
   const descLine1 = "CurrenSea allows you to execute large-volume crypto trades effortlessly with zero slippage and competitive market pricing.".split(" ");
   const descLine2 = "Enjoy direct settlement without any middlemen involved.".split(" ");
 
   return (
     <>
-      <section
-        ref={ref}
-        className="relative w-full min-h-screen overflow-x-hidden"
-        onMouseMove={handleSectionMouseMove}
-      >
+      <section ref={ref} className="relative w-full min-h-screen overflow-hidden">
 
         {/* ── Floating particles ── */}
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
@@ -189,15 +134,32 @@ export default function TopSection() {
         </div>
 
         {/* BOTTOM GRADIENT FADE */}
-        <div className="absolute bottom-0 left-0 w-full h-[278px] bg-gradient-to-b from-transparent to-black z-[-5]" />
+        <div
+          className="absolute bottom-0 left-0 w-full h-[278px]
+                     bg-gradient-to-b from-transparent to-black z-[-5]"
+        />
 
-        {/* BACKGROUND — parallax + breathing zoom */}
-        <motion.div style={{ y: bgY, scale: bgScale }} className="absolute inset-0 -z-20">
-          <Image src="/images/top-bg.jpg" alt="Background" fill priority className="object-cover" />
+        {/* BACKGROUND — parallax + subtle breathing zoom */}
+        <motion.div
+          style={{ y: bgY, scale: bgScale }}
+          className="absolute inset-0 -z-20"
+        >
+          <Image
+            src="/images/top-bg.jpg"
+            alt="Background"
+            fill
+            priority
+            className="object-cover"
+          />
         </motion.div>
 
         {/* Dot Texture Overlay */}
-        <Image src="/images/topsection-bg2.png" alt="texture" fill className="object-cover -z-10" />
+        <Image
+          src="/images/topsection-bg2.png"
+          alt="texture"
+          fill
+          className="object-cover -z-10"
+        />
 
         {/* DARK OVERLAY */}
         <motion.div
@@ -207,7 +169,7 @@ export default function TopSection() {
           className="absolute inset-0 bg-black/10 z-0"
         />
 
-        {/* ── Breathing vignette ── */}
+        {/* ── Subtle breathing vignette ── */}
         <motion.div
           className="absolute inset-0 z-[1] pointer-events-none"
           animate={{ opacity: [0.4, 0.65, 0.4] }}
@@ -218,13 +180,12 @@ export default function TopSection() {
           }}
         />
 
-        {/* HERO CONTENT — horizontal mouse shift */}
+        {/* HERO CONTENT */}
         <motion.div
-          style={{ y: contentY, opacity: contentOpacity, x: contentShiftX }}
+          style={{ y: contentY, opacity: contentOpacity }}
           className="relative z-20 flex items-center min-h-[100svh]"
         >
-          {/* Vertical mouse shift separate so springs are independent */}
-          <motion.div style={{ y: contentShiftY }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
             <div className="max-w-3xl">
 
               {/* TAG */}
@@ -237,11 +198,15 @@ export default function TopSection() {
                 <motion.span
                   whileHover={{ scale: 1.04, backgroundColor: "rgba(255,255,255,0.18)" }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="inline-flex font-urbanist items-center gap-2 px-4 py-1 rounded-full
-                             bg-gradient-to-b from-white/20 to-white/50 border border-white/20
-                             text-[14px] sm:text-sm text-white cursor-default relative overflow-hidden"
+                  className="inline-flex font-urbanist items-center gap-2
+                             px-4 py-1 rounded-full
+                             bg-gradient-to-b from-white/20 to-white/50
+                             border border-white/20
+                             text-[16px] sm:text-sm text-white cursor-default
+                             relative overflow-hidden"
                   style={{ fontFamily: "var(--font-urbanist)" }}
                 >
+                  {/* Shimmer sweep loop */}
                   <motion.span
                     className="absolute inset-0 pointer-events-none"
                     animate={{ x: ["-100%", "200%"] }}
@@ -267,19 +232,30 @@ export default function TopSection() {
                 </motion.span>
               </motion.div>
 
-              {/* TITLE — 2 lines, bigger font, no break */}
+              {/* TITLE */}
               <motion.h1
-                style={{ fontFamily: "var(--font-space)" }}
-                className="font-medium text-[32px] sm:text-5xl md:text-4xl lg:text-[70px]
-                           leading-[115%] tracking-[-0.03em] text-white
-                           [text-shadow:0px_8px_40px_rgba(0,0,0,0.7)]"
-                initial="hidden"
-                animate="show"
-                variants={{
-                  hidden: {},
-                  show: { transition: { staggerChildren: 0.07, delayChildren: 0.25 } },
-                }}
-              >
+  style={{ fontFamily: "var(--font-space)" }}
+  className="
+    font-medium 
+    text-3xl        /* 📱 mobile (small) */
+    sm:text-4xl     /* small devices */
+    md:text-5xl     /* tablet */
+    lg:text-6xl     /* laptop */
+    xl:text-[70px]  /* desktop big */
+    leading-[110%] 
+    tracking-[-0.04em] 
+    text-white
+    [text-shadow:0px_8px_40px_rgba(0,0,0,0.7)]
+  "
+  initial="hidden"
+  animate="show"
+  variants={{
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.07, delayChildren: 0.25 },
+    },
+  }}
+>
                 <span className="block whitespace-nowrap">
                   {["Buy", "Crypto", "Instantly"].map((word) => (
                     <motion.span
@@ -287,7 +263,9 @@ export default function TopSection() {
                       variants={{
                         hidden: { opacity: 0, y: 52, rotateX: -15 },
                         show: {
-                          opacity: 1, y: 0, rotateX: 0,
+                          opacity: 1,
+                          y: 0,
+                          rotateX: 0,
                           transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
                         },
                       }}
@@ -304,7 +282,9 @@ export default function TopSection() {
                       variants={{
                         hidden: { opacity: 0, y: 52, rotateX: -15 },
                         show: {
-                          opacity: 1, y: 0, rotateX: 0,
+                          opacity: 1,
+                          y: 0,
+                          rotateX: 0,
                           transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
                         },
                       }}
@@ -316,16 +296,19 @@ export default function TopSection() {
                 </span>
               </motion.h1>
 
-              {/* DESCRIPTION — word stagger */}
+              {/* DESCRIPTION — word by word stagger */}
               <motion.p
                 style={{ fontFamily: "var(--font-mona)" }}
-                className="mt-4 font-medium text-[14px] sm:text-[16px] lg:text-[20px]
-                           leading-[26px] sm:leading-[28px] tracking-[-0.4px] text-white/70 text-[#FFFFFFB2] max-w-xl"
+                className="mt-4 font-medium text-[16px] sm:text-[18px] lg:text-[20px]
+                           leading-[28px] tracking-[-0.4px] text-white/70
+                           text-[#FFFFFFB2] max-w-xl"
                 initial="hidden"
                 animate="show"
                 variants={{
                   hidden: {},
-                  show: { transition: { staggerChildren: 0.03, delayChildren: 0.95 } },
+                  show: {
+                    transition: { staggerChildren: 0.03, delayChildren: 0.95 },
+                  },
                 }}
               >
                 {descLine1.map((word, i) => (
@@ -334,7 +317,8 @@ export default function TopSection() {
                     variants={{
                       hidden: { opacity: 0, y: 10 },
                       show: {
-                        opacity: 1, y: 0,
+                        opacity: 1,
+                        y: 0,
                         transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
                       },
                     }}
@@ -350,7 +334,8 @@ export default function TopSection() {
                       variants={{
                         hidden: { opacity: 0, y: 10 },
                         show: {
-                          opacity: 1, y: 0,
+                          opacity: 1,
+                          y: 0,
                           transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
                         },
                       }}
@@ -367,69 +352,74 @@ export default function TopSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease, delay: 1.1 }}
-                className="mt-8 sm:mt-10 inline-block relative"
+                className="mt-10 inline-block relative"
               >
-                <MagneticButton>
+                {/* Pulse ring */}
+                <motion.span
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  animate={{ scale: [1, 1.18, 1], opacity: [0.35, 0, 0.35] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ border: "1.5px solid rgba(255,255,255,0.35)" }}
+                />
+                <motion.a
+                  href="https://app.currensea.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap={{ scale: 0.96 }}
+                  animate="rest"
+                  variants={{
+                    rest:  { scale: 1,    boxShadow: "0 0 0px rgba(255,255,255,0)" },
+                    hover: { scale: 1.05, boxShadow: "0 0 32px rgba(255,255,255,0.35)" },
+                  }}
+                  transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                  className="px-4 py-3 bg-white text-black inline-flex items-center
+                             rounded-full text-sm font-medium relative overflow-hidden"
+                >
+                  {/* Shimmer on hover */}
                   <motion.span
-                    className="absolute inset-0 rounded-full pointer-events-none"
-                    animate={{ scale: [1, 1.18, 1], opacity: [0.35, 0, 0.35] }}
-                    transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                    style={{ border: "1.5px solid rgba(255,255,255,0.35)" }}
-                  />
-                  <motion.a
-                    href="https://app.currensea.in/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial="rest"
-                    whileHover="hover"
-                    whileTap={{ scale: 0.96 }}
-                    animate="rest"
                     variants={{
-                      rest:  { scale: 1,    boxShadow: "0 0 0px rgba(255,255,255,0)" },
-                      hover: { scale: 1.05, boxShadow: "0 0 32px rgba(255,255,255,0.35)" },
+                      rest:  { x: "-120%", opacity: 0 },
+                      hover: { x:  "120%", opacity: 1 },
                     }}
-                    transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                    className="px-4 py-3 bg-white text-black inline-flex items-center
-                               rounded-full text-sm font-medium relative overflow-hidden"
+                    transition={{ duration: 0.45 }}
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        "linear-gradient(105deg, transparent 30%, rgba(0,0,0,0.07) 50%, transparent 70%)",
+                    }}
+                  />
+                  <span>GET STARTED NOW</span>
+
+                  {/* Arrow — bounce right on hover, idle nudge loop */}
+                  <motion.span
+                    variants={{
+                      rest:  { x: 0 },
+                      hover: { x: 4 },
+                    }}
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{
+                      x: { duration: 1.5, repeat: Infinity, repeatDelay: 2 },
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 18,
+                    }}
+                    className="inline-flex ml-2"
                   >
-                    <motion.span
-                      variants={{
-                        rest:  { x: "-120%", opacity: 0 },
-                        hover: { x:  "120%", opacity: 1 },
-                      }}
-                      transition={{ duration: 0.45 }}
-                      className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background:
-                          "linear-gradient(105deg, transparent 30%, rgba(0,0,0,0.07) 50%, transparent 70%)",
-                      }}
+                    <Image
+                      src="/images/icons/common-blackarrow-icon.svg"
+                      alt="arrow"
+                      width={14}
+                      height={14}
+                      className="inline-block"
                     />
-                    <span>GET STARTED NOW</span>
-                    <motion.span
-                      variants={{ rest: { x: 0 }, hover: { x: 4 } }}
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{
-                        x: { duration: 1.5, repeat: Infinity, repeatDelay: 2 },
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 18,
-                      }}
-                      className="inline-flex ml-2"
-                    >
-                      <Image
-                        src="/images/icons/common-blackarrow-icon.svg"
-                        alt="arrow"
-                        width={14}
-                        height={14}
-                        className="inline-block"
-                      />
-                    </motion.span>
-                  </motion.a>
-                </MagneticButton>
+                  </motion.span>
+                </motion.a>
               </motion.div>
 
             </div>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* ── Scroll indicator ── */}
@@ -439,4 +429,3 @@ export default function TopSection() {
     </>
   );
 }
-

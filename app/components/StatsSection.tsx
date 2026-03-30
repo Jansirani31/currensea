@@ -272,6 +272,15 @@ export default function StatsSection() {
       ref={sectionRef}
       className="relative z-10 w-full bg-black px-4 sm:px-6 lg:px-10 py-12 lg:py-16 pt-18 lg:pt-24"
     >
+      {/* ✅ FIX: Top black fade — hides the blue strip bleed from TopSection */}
+      <div
+        className="absolute top-0 left-0 w-full pointer-events-none z-20"
+        style={{
+          height: "120px",
+          background: "linear-gradient(to bottom, black 0%, transparent 100%)",
+        }}
+      />
+
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
 
         {/* ── 99% CARD ── */}
